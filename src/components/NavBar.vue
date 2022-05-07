@@ -20,15 +20,15 @@ export default {
 .navbar{
   width: 100vw;
   height: 3.5rem;
+  background-color: white;
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
   display: flex;
+  align-items: center;
 }
 
 .navbar img{
   height: 2rem;
-  align-content: center;
-  align-items: center;
-  margin:  auto 0;
-  margin-right: 25px;
+  /* margin:  auto 0; */
+  margin: 25px;
 }
 </style>
