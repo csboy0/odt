@@ -1,5 +1,6 @@
+impor
 <template>
-    <div id="root">
+    <div class="main">
 
         <NavBar/>
         <HeroSec :route="route"/>

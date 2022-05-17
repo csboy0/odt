@@ -9,7 +9,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="{{ mix('/css/app.css') }}"></link>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
         body {
@@ -21,7 +21,7 @@
 
 <body>
     <div id="app">
-        <App route="{{route('upload')}}" />
+        <App route="{{ route('upload') }}" />
     </div>
     <script src="{{ mix('/js/app.js') }}"></script>
 
