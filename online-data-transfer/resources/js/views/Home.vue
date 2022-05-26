@@ -70,10 +70,10 @@
 </template>
 
 <script>
-import UploadView from "./UploadView.vue";
-import Promo from "./Promo.vue";
+import UploadView from "../components/UploadView.vue";
+import Promo from "../components/Promo.vue";
 export default {
-  name: "HeroSec",
+  name: "HomeComponent",
   props: {
     route: {
       type: String,

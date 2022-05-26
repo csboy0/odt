@@ -3,13 +3,13 @@ impor
     <div class="main">
 
         <NavBar/>
-        <HeroSec :route="route"/>
+        <router-view></router-view>
+        <!-- <HeroSec :route="route"/> -->
     </div>
 </template>
 
 <script>
-import NavBar from './NavBar.vue';
-import HeroSec from './HeroSec.vue';
+import NavBar from '../components/NavBar.vue';
 
 export default {
     mounted() {
@@ -23,7 +23,6 @@ export default {
     },
     components: {
         NavBar,
-        HeroSec,
 
     }
 }
