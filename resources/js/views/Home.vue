@@ -20,7 +20,7 @@
         bg-white
         shadow-2xl shadow-gray-300
         rounded-lg
-        opacity-[98%]
+        <!-- opacity-[98%] -->
       "
     >
       <p class="text-lg pt-4">Enter Details</p>
@@ -58,8 +58,34 @@
         cols="30"
         rows="10"
       ></textarea>
+      <div class="form-check form-switch">
+        <input
+          class="
+            form-check-input
+            appearance-none
+            w-9
+            -ml-10
+            rounded-full
+            float-left
+            h-5
+            align-top
+            bg-no-repeat bg-contain bg-gray-300
+            focus:outline-none
+            cursor-pointer
+            shadow-sm
+          "
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+        />
+        <label
+          class="form-check-label inline-block text-gray-800"
+          for="flexSwitchCheckDefault"
+          >Protect With Passcode</label
+        >
+      </div>
       <button
-        id="submit-btn"
+        id="submit-btn my-2"
         @click="sendFile"
         class="bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold"
       >
@@ -119,7 +145,7 @@ export default {
         .post("/upload", formData, config)
         .then(function (res) {
           // console.log("success send");
-          console.log(res)
+          console.log(res);
         })
         .catch(function (error) {
           // this.output = error;

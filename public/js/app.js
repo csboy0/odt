@@ -5467,6 +5467,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5552,48 +5554,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -5820,6 +5780,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_UploadView_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/UploadView.vue */ "./resources/js/components/UploadView.vue");
 /* harmony import */ var _components_Promo_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Promo.vue */ "./resources/js/components/Promo.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -29806,85 +29792,101 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "flex justify-between items-center py-2" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "justify-center position-fixed items-center  top-2 right-3 text-[1.2rem] shadow-sm py-1 rounded-md bg-white  border-[1px] border-slate-200",
+      },
+      [
+        _c(
+          "ul",
+          {
+            staticClass:
+              "flex m-auto pl-1   list-none justify-center items-center ",
+          },
+          [
+            _c(
+              "li",
+              { staticClass: " py-2 px-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-decoration-none text-slate-800",
+                    attrs: { to: "/" },
+                  },
+                  [_vm._v("Home")]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: " py-2 px-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-decoration-none text-slate-800",
+                    attrs: { to: "/about" },
+                  },
+                  [_vm._v("About")]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: " py-2 px-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-decoration-none text-slate-800",
+                    attrs: { to: "/contact" },
+                  },
+                  [_vm._v("Contact")]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: " py-2 px-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-decoration-none text-slate-800",
+                    attrs: { to: "/blog" },
+                  },
+                  [_vm._v("Blog")]
+                ),
+              ],
+              1
+            ),
+          ]
+        ),
+      ]
+    ),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "flex justify-between items-center py-2" },
-      [
-        _c("h2", { staticClass: "text-2xl mt-2 ml-4 text-blue-500" }, [
-          _vm._v("Data"),
-          _c("span", { staticClass: "text-slate-400" }, [_vm._v("Transfer")]),
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "justify-center position-fixed items-center  top-2 right-3 text-[1.2rem] shadow-sm py-1 rounded-md bg-white  border-[1px] border-slate-200",
-          },
-          [
-            _c(
-              "ul",
-              {
-                staticClass:
-                  "flex m-auto pl-1   list-none justify-center items-center ",
-              },
-              [
-                _c("li", { staticClass: " py-2 px-3" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "text-decoration-none text-slate-800",
-                      attrs: { href: "/" },
-                    },
-                    [_vm._v("Home")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: " py-2 px-3" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "text-decoration-none text-slate-800",
-                      attrs: { href: "/about" },
-                    },
-                    [_vm._v("About")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: " py-2 px-3" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "text-decoration-none text-slate-800",
-                      attrs: { href: "/contact" },
-                    },
-                    [_vm._v("Contact")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: " py-2 px-3" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "text-decoration-none text-slate-800",
-                      attrs: { href: "/blog" },
-                    },
-                    [_vm._v("Blog")]
-                  ),
-                ]),
-              ]
-            ),
-          ]
-        ),
-      ]
-    )
+    return _c("h2", { staticClass: "text-2xl mt-2 ml-4 text-blue-500" }, [
+      _vm._v("Data"),
+      _c("span", { staticClass: "text-slate-400" }, [_vm._v("Transfer")]),
+    ])
   },
 ]
 render._withStripped = true
@@ -30033,11 +30035,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "m-5" }, [
-      _c("h2", { staticClass: "title text-3xl mt-2" }, [_vm._v("About")]),
+      _c(
+        "h2",
+        { staticClass: "title text-3xl mt-2 font-semibold text-slate-500" },
+        [_vm._v("About Us")]
+      ),
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "\n    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sint maxime\n    placeat, modi est tempore veniam et deserunt eum quae repudiandae porro\n    dolorum aperiam voluptatem, provident, repellendus pariatur corporis\n    commodi deleniti ut aliquam. Reiciendis animi numquam eligendi consectetur\n    corrupti eos officia cupiditate nam sint, vitae deserunt beatae, nulla,\n    tempore est? Perspiciatis rem repellat sed vitae accusantium. Sapiente\n    magni ducimus culpa quidem aut at voluptatem officia ea dolor minima\n    suscipit, enim assumenda velit et? Facilis beatae et cupiditate\n    reprehenderit quidem veritatis odio autem consequatur? Inventore accusamus\n    quisquam repudiandae, est distinctio velit.\n  "
+          "\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sint\n        maxime placeat, modi est tempore veniam et deserunt eum quae\n        repudiandae porro dolorum aperiam voluptatem, provident, repellendus\n        pariatur corporis commodi deleniti ut aliquam. Reiciendis animi\n        numquam eligendi consectetur corrupti eos officia cupiditate nam\n        sint, vitae deserunt beatae, nulla, tempore est? Perspiciatis rem\n        repellat sed vitae accusantium. Sapiente magni ducimus culpa quidem\n        aut at voluptatem officia ea dolor minima suscipit, enim assumenda\n        velit et? Facilis beatae et cupiditate reprehenderit quidem\n        veritatis odio autem consequatur? Inventore accusamus quisquam\n        repudiandae, est distinctio velit.\n    "
         ),
       ]),
       _vm._v(" "),
@@ -30046,7 +30052,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "\n        mx-2\n        shadow-sm\n        px-5\n        border-[1px] border-slate-200\n        py-5\n        rounded-md\n        justify-center\n        flex-1\n      ",
+              "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md justify-center flex-1",
           },
           [
             _c("img", {
@@ -30056,7 +30062,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("h3", [_vm._v("Reliable Service")]),
             _vm._v(" "),
-            _c("p", [_vm._v("\n        yes we are reliable \n      ")]),
+            _c("p", [_vm._v("yes we are reliable")]),
           ]
         ),
         _vm._v(" "),
@@ -30064,7 +30070,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "\n        mx-2\n        shadow-sm\n        px-5\n        border-[1px] border-slate-200\n        py-5\n        rounded-md\n        flex-1\n      ",
+              "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md flex-1",
           },
           [
             _c("img", {
@@ -30076,7 +30082,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolorem\n        eaque nulla earum illo aliquam neque iure similique harum cumque.\n      "
+                "\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Quae dolorem eaque nulla earum illo aliquam neque iure\n                similique harum cumque.\n            "
               ),
             ]),
           ]
@@ -30086,7 +30092,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "\n        mx-2\n        shadow-sm\n        px-5\n        border-[1px] border-slate-200\n        py-5\n        rounded-md\n        flex-1\n      ",
+              "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md flex-1",
           },
           [
             _c("img", {
@@ -30098,7 +30104,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolorem\n        eaque nulla earum illo aliquam neque iure similique harum cumque.\n      "
+                "\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Quae dolorem eaque nulla earum illo aliquam neque iure\n                similique harum cumque.\n            "
               ),
             ]),
           ]
@@ -30425,7 +30431,7 @@ var render = function () {
         "div",
         {
           staticClass:
-            "\n      flex flex-col\n      d-none\n      items-center\n      position-fixed\n      w-[35vw]\n      top-32\n      h-[70vh]\n      border-2 border-slate-200\n      bg-white\n      shadow-2xl shadow-gray-300\n      rounded-lg\n      opacity-[98%]\n    ",
+            "\n      flex flex-col\n      d-none\n      items-center\n      position-fixed\n      w-[35vw]\n      top-32\n      h-[70vh]\n      border-2 border-slate-200\n      bg-white\n      shadow-2xl shadow-gray-300\n      rounded-lg\n      <!-- opacity-[98%] -->\n    ",
           attrs: { id: "popup" },
         },
         [
@@ -30477,12 +30483,14 @@ var render = function () {
             },
           }),
           _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
           _c(
             "button",
             {
               staticClass:
                 "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
-              attrs: { id: "submit-btn" },
+              attrs: { id: "submit-btn my-2" },
               on: { click: _vm.sendFile },
             },
             [_vm._v("\n      Send >\n    ")]
@@ -30492,7 +30500,33 @@ var render = function () {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-check form-switch" }, [
+      _c("input", {
+        staticClass:
+          "\n          form-check-input\n          appearance-none\n          w-9\n          -ml-10\n          rounded-full\n          float-left\n          h-5\n          align-top\n          bg-no-repeat bg-contain bg-gray-300\n          focus:outline-none\n          cursor-pointer\n          shadow-sm\n        ",
+        attrs: {
+          type: "checkbox",
+          role: "switch",
+          id: "flexSwitchCheckDefault",
+        },
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        {
+          staticClass: "form-check-label inline-block text-gray-800",
+          attrs: { for: "flexSwitchCheckDefault" },
+        },
+        [_vm._v("Protect With Passcode")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 
