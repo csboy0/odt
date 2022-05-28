@@ -32,9 +32,9 @@ class FileController extends Controller
             return "No Files Selected";
         }
     }
-    public function download($path)
-{
-    // DB::select('select * from share_files where')
-        return response()->download($path);
-    }
+//     public function download($path)
+// {
+//     // DB::select('select * from share_files where')
+//         return response()->download($path);
+//     }
 }

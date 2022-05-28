@@ -4,9 +4,9 @@
         <div class="justify-center position-fixed items-center  top-2 right-3 text-[1.2rem] shadow-sm py-1 rounded-md bg-white  border-[1px] border-slate-200">
             <ul class="flex m-auto pl-1   list-none justify-center items-center ">
                 <li class=" py-2 px-3"><a class="text-decoration-none text-slate-800" href="/">Home</a></li>
-                <li class=" py-2 px-3"><a class="text-decoration-none text-slate-800" href="#">About</a></li>
-                <li class=" py-2 px-3"><a class="text-decoration-none text-slate-800" href="#">Contact</a></li>
-                <li class=" py-2 px-3"><a class="text-decoration-none text-slate-800" href="#">Blog</a></li>
+                <li class=" py-2 px-3"><a class="text-decoration-none text-slate-800" href="/about">About</a></li>
+                <li class=" py-2 px-3"><a class="text-decoration-none text-slate-800" href="/contact">Contact</a></li>
+                <li class=" py-2 px-3"><a class="text-decoration-none text-slate-800" href="/blog">Blog</a></li>
             </ul>
         </div>
 

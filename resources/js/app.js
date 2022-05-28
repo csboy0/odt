@@ -5,6 +5,9 @@ import HomeComponent from './views/Home'
 
 import VueRouter from 'vue-router'
 import Vue from 'vue'
+import AboutVue from './views/About.vue'
+import ContactVue from './views/Contact.vue'
+import BlogVue from './views/Blog.vue'
 require('./bootstrap');
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -19,6 +22,21 @@ const router = new VueRouter({
             path: '/download',
             name: 'Download',
             component: Download,
+        },
+        {
+            path: '/about',
+            name: 'About',
+            component: AboutVue,
+        },
+        {
+            path: '/contact',
+            name: 'Contact',
+            component: ContactVue,
+        },
+        {
+            path: '/blog',
+            name: 'Blog',
+            component: BlogVue,
         },
     ],
 });
