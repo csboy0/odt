@@ -5639,7 +5639,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -30057,11 +30056,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("h3", [_vm._v("Reliable Service")]),
             _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n        yes we are reliable like we made ur web fast we will send ur files\n        fast 😂\n      "
-              ),
-            ]),
+            _c("p", [_vm._v("\n        yes we are reliable \n      ")]),
           ]
         ),
         _vm._v(" "),

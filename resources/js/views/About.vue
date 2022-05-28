@@ -34,8 +34,7 @@
         />
         <h3>Reliable Service</h3>
         <p>
-          yes we are reliable like we made ur web fast we will send ur files
-          fast 😂
+          yes we are reliable 
         </p>
       </div>
       <div
