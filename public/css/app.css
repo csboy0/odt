@@ -651,10 +651,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-full {
   border-radius: 9999px;
 }
-.border {
+.border-\[1px\] {
   border-width: 1px;
 }
-.border-\[1px\] {
+.border {
   border-width: 1px;
 }
 .border-2 {

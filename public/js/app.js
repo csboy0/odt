@@ -5877,6 +5877,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5892,7 +5898,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      file: null
+      file: null,
+      sMail: "",
+      msgS: "",
+      titleS: "",
+      rMail: ""
     };
   },
   methods: {
@@ -5905,10 +5915,12 @@ __webpack_require__.r(__webpack_exports__);
       this.file = file;
     },
     sendFile: function sendFile() {
-      var rMail = document.getElementById("r-mail").value;
-      var sMail = document.getElementById("s-mail").value;
-      var titleS = document.getElementById("title").value;
-      var msgS = document.getElementById("msg").value;
+      var _this = this;
+
+      this.rMail = document.getElementById("r-mail").value;
+      this.sMail = document.getElementById("s-mail").value;
+      this.titleS = document.getElementById("title").value;
+      this.msgS = document.getElementById("msg").value;
       var config = {
         headers: {
           "content-type": "multipart/form-data"
@@ -5923,13 +5935,21 @@ __webpack_require__.r(__webpack_exports__);
 
       var formData = new FormData();
       formData.append("file", this.file);
-      formData.append("rmail", rMail);
-      formData.append("smail", sMail);
-      formData.append("title", titleS);
-      formData.append("msg", msgS);
+      formData.append("rmail", this.rMail);
+      formData.append("smail", this.sMail);
+      formData.append("title", this.titleS);
+      formData.append("msg", this.msgS);
       axios.post("/upload", formData, config).then(function (res) {
-        // console.log("success send");
-        console.log(res);
+        if (res.status == 200) {
+          _this.msgS = "";
+          _this.rMail = "";
+          _this.sMail = "";
+          _this.titleS = "";
+          var popup = document.getElementById("popup");
+          popup.classList.add("d-none");
+          console.log("Upload Success!");
+          alert("Upload Sucess!");
+        }
       })["catch"](function (error) {
         // this.output = error;
         console.log(error);
@@ -30431,7 +30451,7 @@ var render = function () {
         "div",
         {
           staticClass:
-            "\n      flex flex-col\n      d-none\n      items-center\n      position-fixed\n      w-[35vw]\n      top-32\n      h-[70vh]\n      border-2 border-slate-200\n      bg-white\n      shadow-2xl shadow-gray-300\n      rounded-lg\n      <!-- opacity-[98%] -->\n    ",
+            "\n      flex flex-col\n      d-none\n      items-center\n      position-fixed\n      w-[35vw]\n      top-32\n      h-[70vh]\n      border-2 border-slate-200\n      bg-white\n      shadow-2xl shadow-gray-300\n      rounded-lg\n      <!--\n      opacity-[98%]\n      -->\n    ",
           attrs: { id: "popup" },
         },
         [
@@ -30452,6 +30472,7 @@ var render = function () {
               placeholder: "Recipient's Email",
               type: "text",
             },
+            domProps: { value: this.rMail },
           }),
           _vm._v(" "),
           _c("input", {
@@ -30463,12 +30484,14 @@ var render = function () {
               placeholder: "Your Email",
               type: "text",
             },
+            domProps: { value: this.sMail },
           }),
           _vm._v(" "),
           _c("input", {
             staticClass:
               "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
             attrs: { id: "title", placeholder: "Title", type: "text" },
+            domProps: { value: this.titleS },
           }),
           _vm._v(" "),
           _c("textarea", {
@@ -30481,6 +30504,7 @@ var render = function () {
               cols: "30",
               rows: "10",
             },
+            domProps: { value: this.msgS },
           }),
           _vm._v(" "),
           _vm._m(0),

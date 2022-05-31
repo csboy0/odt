@@ -20,7 +20,9 @@
         bg-white
         shadow-2xl shadow-gray-300
         rounded-lg
-        <!-- opacity-[98%] -->
+        <!--
+        opacity-[98%]
+        -->
       "
     >
       <p class="text-lg pt-4">Enter Details</p>
@@ -35,6 +37,7 @@
         required
         class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
         placeholder="Recipient's Email"
+        :value="this.rMail"
         type="text"
       />
       <input
@@ -42,12 +45,14 @@
         required
         class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
         placeholder="Your Email"
+        :value="this.sMail"
         type="text"
       />
       <input
         id="title"
         class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
         placeholder="Title"
+        :value="this.titleS"
         type="text"
       />
       <textarea
@@ -55,6 +60,7 @@
         class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
         placeholder="Your message here..."
         name=""
+        :value="this.msgS"
         cols="30"
         rows="10"
       ></textarea>
@@ -108,6 +114,10 @@ export default {
   components: { UploadView, Promo },
   data: () => ({
     file: null,
+    sMail: "",
+    msgS: "",
+    titleS: "",
+    rMail: "",
   }),
   methods: {
     closePopUp() {
@@ -119,10 +129,10 @@ export default {
       this.file = file;
     },
     sendFile() {
-      var rMail = document.getElementById("r-mail").value;
-      var sMail = document.getElementById("s-mail").value;
-      var titleS = document.getElementById("title").value;
-      var msgS = document.getElementById("msg").value;
+      this.rMail = document.getElementById("r-mail").value;
+      this.sMail = document.getElementById("s-mail").value;
+      this.titleS = document.getElementById("title").value;
+      this.msgS = document.getElementById("msg").value;
       const config = {
         headers: { "content-type": "multipart/form-data" },
       };
@@ -136,18 +146,26 @@ export default {
       // };
       let formData = new FormData();
       formData.append("file", this.file);
-      formData.append("rmail", rMail);
-      formData.append("smail", sMail);
-      formData.append("title", titleS);
-      formData.append("msg", msgS);
+      formData.append("rmail", this.rMail);
+      formData.append("smail", this.sMail);
+      formData.append("title", this.titleS);
+      formData.append("msg", this.msgS);
 
       axios
         .post("/upload", formData, config)
-        .then(function (res) {
-          // console.log("success send");
-          console.log(res);
+        .then((res) => {
+          if (res.status == 200) {
+            this.msgS = "";
+            this.rMail = "";
+            this.sMail = "";
+            this.titleS = "";
+            var popup = document.getElementById("popup");
+            popup.classList.add("d-none");
+            console.log("Upload Success!");
+            alert("Upload Sucess!");
+          }
         })
-        .catch(function (error) {
+        .catch((error) => {
           // this.output = error;
           console.log(error);
         });
