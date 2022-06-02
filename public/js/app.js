@@ -5883,6 +5883,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5902,7 +5910,8 @@ __webpack_require__.r(__webpack_exports__);
       sMail: "",
       msgS: "",
       titleS: "",
-      rMail: ""
+      rMail: "",
+      name: ""
     };
   },
   methods: {
@@ -5921,6 +5930,7 @@ __webpack_require__.r(__webpack_exports__);
       this.sMail = document.getElementById("s-mail").value;
       this.titleS = document.getElementById("title").value;
       this.msgS = document.getElementById("msg").value;
+      this.name = document.getElementById("name").value;
       var config = {
         headers: {
           "content-type": "multipart/form-data"
@@ -5938,6 +5948,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("rmail", this.rMail);
       formData.append("smail", this.sMail);
       formData.append("title", this.titleS);
+      formData.append("name", this.name);
       formData.append("msg", this.msgS);
       axios.post("/upload", formData, config).then(function (res) {
         if (res.status == 200) {
@@ -30490,7 +30501,19 @@ var render = function () {
           _c("input", {
             staticClass:
               "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-            attrs: { id: "title", placeholder: "Title", type: "text" },
+            attrs: {
+              id: "name",
+              required: "",
+              placeholder: "Your Name (Optional)",
+              type: "text",
+            },
+            domProps: { value: this.name },
+          }),
+          _vm._v(" "),
+          _c("input", {
+            staticClass:
+              "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+            attrs: { id: "title", placeholder: "Subject", type: "text" },
             domProps: { value: this.titleS },
           }),
           _vm._v(" "),

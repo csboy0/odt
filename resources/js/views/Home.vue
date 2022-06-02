@@ -49,9 +49,17 @@
         type="text"
       />
       <input
+        id="name"
+        required
+        class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+        placeholder="Your Name (Optional)"
+        :value="this.name"
+        type="text"
+      />
+      <input
         id="title"
         class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-        placeholder="Title"
+        placeholder="Subject"
         :value="this.titleS"
         type="text"
       />
@@ -118,6 +126,7 @@ export default {
     msgS: "",
     titleS: "",
     rMail: "",
+    name: "",
   }),
   methods: {
     closePopUp() {
@@ -133,6 +142,7 @@ export default {
       this.sMail = document.getElementById("s-mail").value;
       this.titleS = document.getElementById("title").value;
       this.msgS = document.getElementById("msg").value;
+      this.name = document.getElementById("name").value;
       const config = {
         headers: { "content-type": "multipart/form-data" },
       };
@@ -149,6 +159,7 @@ export default {
       formData.append("rmail", this.rMail);
       formData.append("smail", this.sMail);
       formData.append("title", this.titleS);
+      formData.append("name", this.name);
       formData.append("msg", this.msgS);
 
       axios
