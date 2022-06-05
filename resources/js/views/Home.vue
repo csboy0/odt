@@ -1,9 +1,9 @@
 <template>
-  <div class="m-auto flex p-5 items-center justify-center">
-    <div class="body left">
+  <div class=" flex justify-center h-full px-5">
+    <div class="body left h-full flex items-start">
       <UploadView @upload-file="uploadfile" />
     </div>
-    <div class="body right">
+    <div class="body right h-full flex items-start">
       <Promo />
     </div>
     <div

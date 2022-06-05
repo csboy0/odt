@@ -1,6 +1,6 @@
 <template>
   <div
-    class="upload-area"
+    class="upload-area mt-[8rem] flex items-start"
     @dragenter="OnDragEnter"
     @dragleave="OnDragLeave"
     @dragover.prevent
@@ -122,7 +122,6 @@ export default {
   border-radius: 0.2rem;
   justify-content: center;
   display: flex;
-  margin: auto;
   flex-direction: column;
   align-items: center;
 }

@@ -1,6 +1,6 @@
 impor
 <template>
-    <div class="main">
+    <div class="main h-screen">
 
         <NavBar/>
         <router-view></router-view>

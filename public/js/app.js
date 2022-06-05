@@ -11137,7 +11137,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n* {\n    margin: 0;\n    padding: 0;\n}\n#app{\n    height: 100%;\n}\n#root{\n    height: 100%;\n}\nhtml, body {\n    background-color: #ffffff;\n    font-family: 'Ubuntu', sans-serif;\n    color: rgb(32, 32, 32);\n    height: 100%;\n    overflow: hidden\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n* {\r\n    margin: 0;\r\n    padding: 0;\n}\n#app{\r\n    height: 100%;\n}\n#root{\r\n    height: 100%;\n}\nhtml, body {\r\n    background-color: #ffffff;\r\n    font-family: 'Ubuntu', sans-serif;\r\n    color: rgb(32, 32, 32);\r\n    height: 100%;\r\n    overflow: hidden\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11161,7 +11161,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-63cd6604] {\n  display: flex;\n  padding: 25px;\n  height: 100%;\n  overflow: hidden;\n}\n.left[data-v-63cd6604] {\n  flex: 1;\n}\n.right[data-v-63cd6604] {\n  flex: 1;\n}\n.left img[data-v-63cd6604] {\n  height: 3rem;\n  color: lightblue;\n}\n.left h2[data-v-63cd6604] {\n  font-size: 1.1rem;\n  text-align: center;\n  padding: 15px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-63cd6604] {\r\n  display: flex;\r\n  padding: 25px;\r\n  height: 100%;\r\n  overflow: hidden;\n}\n.left[data-v-63cd6604] {\r\n  flex: 1;\n}\n.right[data-v-63cd6604] {\r\n  flex: 1;\n}\n.left img[data-v-63cd6604] {\r\n  height: 3rem;\r\n  color: lightblue;\n}\n.left h2[data-v-63cd6604] {\r\n  font-size: 1.1rem;\r\n  text-align: center;\r\n  padding: 15px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11185,7 +11185,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".upload-area[data-v-99c4241e] {\n  height: 500px;\n  width: 100%;\n  border: 3px dashed #888888;\n  border-radius: 0.2rem;\n  justify-content: center;\n  display: flex;\n  margin: auto;\n  flex-direction: column;\n  align-items: center;\n}\n.dragging[data-v-99c4241e] {\n  height: 500px;\n  width: 100%;\n  display: flex;\n  background: #ececec;\n  border: 3px dashed rgb(50, 112, 255);\n  border-radius: 0.2rem;\n}\n#b-btn[data-v-99c4241e] {\n  padding: 0.5rem 1rem;\n  background: rgb(50, 112, 255);\n  border: none;\n  margin: 1rem;\n  color: white;\n  font-size: 1rem;\n  border-radius: 0.5rem;\n}\n.right h2[data-v-99c4241e] {\n  padding: 10px;\n  color: #5e5e5e;\n  text-decoration: none;\n}\n.right p[data-v-99c4241e] {\n  padding: 10px;\n  color: #5e5e5e;\n  text-align: center;\n  line-height: 1.3;\n  text-decoration: none;\n}\n.right img[data-v-99c4241e] {\n  height: 15rem;\n}\n#u-tip[data-v-99c4241e] {\n  margin: -5px 5px 5px 10px;\n  font-size: 0.8rem;\n  color: #5d5d5d;\n}\n#browse[data-v-99c4241e] {\n  display: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".upload-area[data-v-99c4241e] {\n  height: 500px;\n  width: 100%;\n  border: 3px dashed #888888;\n  border-radius: 0.2rem;\n  justify-content: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.dragging[data-v-99c4241e] {\n  height: 500px;\n  width: 100%;\n  display: flex;\n  background: #ececec;\n  border: 3px dashed rgb(50, 112, 255);\n  border-radius: 0.2rem;\n}\n#b-btn[data-v-99c4241e] {\n  padding: 0.5rem 1rem;\n  background: rgb(50, 112, 255);\n  border: none;\n  margin: 1rem;\n  color: white;\n  font-size: 1rem;\n  border-radius: 0.5rem;\n}\n.right h2[data-v-99c4241e] {\n  padding: 10px;\n  color: #5e5e5e;\n  text-decoration: none;\n}\n.right p[data-v-99c4241e] {\n  padding: 10px;\n  color: #5e5e5e;\n  text-align: center;\n  line-height: 1.3;\n  text-decoration: none;\n}\n.right img[data-v-99c4241e] {\n  height: 15rem;\n}\n#u-tip[data-v-99c4241e] {\n  margin: -5px 5px 5px 10px;\n  font-size: 0.8rem;\n  color: #5d5d5d;\n}\n#browse[data-v-99c4241e] {\n  display: none;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29951,7 +29951,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "flex flex-col justify-center items-center p-10" },
+      {
+        staticClass: "flex mt-[8rem] flex-col justify-center items-center p-10",
+      },
       [
         _c("h2", [_vm._v("Simple private file sharing")]),
         _vm._v(" "),
@@ -29994,7 +29996,7 @@ var render = function () {
   return _c(
     "div",
     {
-      staticClass: "upload-area",
+      staticClass: "upload-area mt-[8rem] flex items-start",
       class: { dragging: _vm.isDragging },
       on: {
         dragenter: _vm.OnDragEnter,
@@ -30168,7 +30170,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "main" },
+    { staticClass: "main h-screen" },
     [_c("NavBar"), _vm._v(" "), _c("router-view")],
     1
   )
@@ -30445,107 +30447,108 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "m-auto flex p-5 items-center justify-center" },
-    [
-      _c(
-        "div",
-        { staticClass: "body left" },
-        [_c("UploadView", { on: { "upload-file": _vm.uploadfile } })],
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "body right" }, [_c("Promo")], 1),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
+  return _c("div", { staticClass: " flex justify-center h-full px-5" }, [
+    _c(
+      "div",
+      { staticClass: "body left h-full flex items-start" },
+      [_c("UploadView", { on: { "upload-file": _vm.uploadfile } })],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "body right h-full flex items-start" },
+      [_c("Promo")],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "\n      flex flex-col\n      d-none\n      items-center\n      position-fixed\n      w-[35vw]\n      top-32\n      h-[70vh]\n      border-2 border-slate-200\n      bg-white\n      shadow-2xl shadow-gray-300\n      rounded-lg\n      <!--\n      opacity-[98%]\n      -->\n    ",
+        attrs: { id: "popup" },
+      },
+      [
+        _c("p", { staticClass: "text-lg pt-4" }, [_vm._v("Enter Details")]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "top-4 left-4 cursor-pointer position-absolute",
+          attrs: { src: "/images/close.svg", alt: "" },
+          on: { click: _vm.closePopUp },
+        }),
+        _vm._v(" "),
+        _c("input", {
           staticClass:
-            "\n      flex flex-col\n      d-none\n      items-center\n      position-fixed\n      w-[35vw]\n      top-32\n      h-[70vh]\n      border-2 border-slate-200\n      bg-white\n      shadow-2xl shadow-gray-300\n      rounded-lg\n      <!--\n      opacity-[98%]\n      -->\n    ",
-          attrs: { id: "popup" },
-        },
-        [
-          _c("p", { staticClass: "text-lg pt-4" }, [_vm._v("Enter Details")]),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "top-4 left-4 cursor-pointer position-absolute",
-            attrs: { src: "/images/close.svg", alt: "" },
-            on: { click: _vm.closePopUp },
-          }),
-          _vm._v(" "),
-          _c("input", {
+            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+          attrs: {
+            id: "r-mail",
+            required: "",
+            placeholder: "Recipient's Email",
+            type: "text",
+          },
+          domProps: { value: this.rMail },
+        }),
+        _vm._v(" "),
+        _c("input", {
+          staticClass:
+            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+          attrs: {
+            id: "s-mail",
+            required: "",
+            placeholder: "Your Email",
+            type: "text",
+          },
+          domProps: { value: this.sMail },
+        }),
+        _vm._v(" "),
+        _c("input", {
+          staticClass:
+            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+          attrs: {
+            id: "name",
+            required: "",
+            placeholder: "Your Name (Optional)",
+            type: "text",
+          },
+          domProps: { value: this.name },
+        }),
+        _vm._v(" "),
+        _c("input", {
+          staticClass:
+            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+          attrs: { id: "title", placeholder: "Subject", type: "text" },
+          domProps: { value: this.titleS },
+        }),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass:
+            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+          attrs: {
+            id: "msg",
+            placeholder: "Your message here...",
+            name: "",
+            cols: "30",
+            rows: "10",
+          },
+          domProps: { value: this.msgS },
+        }),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
             staticClass:
-              "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-            attrs: {
-              id: "r-mail",
-              required: "",
-              placeholder: "Recipient's Email",
-              type: "text",
-            },
-            domProps: { value: this.rMail },
-          }),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-            attrs: {
-              id: "s-mail",
-              required: "",
-              placeholder: "Your Email",
-              type: "text",
-            },
-            domProps: { value: this.sMail },
-          }),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-            attrs: {
-              id: "name",
-              required: "",
-              placeholder: "Your Name (Optional)",
-              type: "text",
-            },
-            domProps: { value: this.name },
-          }),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-            attrs: { id: "title", placeholder: "Subject", type: "text" },
-            domProps: { value: this.titleS },
-          }),
-          _vm._v(" "),
-          _c("textarea", {
-            staticClass:
-              "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-            attrs: {
-              id: "msg",
-              placeholder: "Your message here...",
-              name: "",
-              cols: "30",
-              rows: "10",
-            },
-            domProps: { value: this.msgS },
-          }),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
-              attrs: { id: "submit-btn my-2" },
-              on: { click: _vm.sendFile },
-            },
-            [_vm._v("\n      Send >\n    ")]
-          ),
-        ]
-      ),
-    ]
-  )
+              "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
+            attrs: { id: "submit-btn my-2" },
+            on: { click: _vm.sendFile },
+          },
+          [_vm._v("\n      Send >\n    ")]
+        ),
+      ]
+    ),
+  ])
 }
 var staticRenderFns = [
   function () {
