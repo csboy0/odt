@@ -1,6 +1,6 @@
 <template>
   <div
-    class="upload-area mt-[8rem] flex items-start"
+    class="upload-area mt-[6rem] flex items-start"
     @dragenter="OnDragEnter"
     @dragleave="OnDragLeave"
     @dragover.prevent
@@ -45,15 +45,12 @@ export default {
   }),
   methods: {
     handleFileChange(e) {
-      // const files = e.dataTransfer.files;
-      // console.log(files);
       var filename = document
         .getElementById("browse")
         .value.replace(/.*(\/|\\)/, "");
       document.getElementById("file-name").innerText = filename;
       document.getElementById("u-tip").innerText = "Click Upload to Proceed...";
       this.file = document.getElementById('browse').files[0];
-      // console.log(document.getElementById('browse').files);
     },
     OnDragEnter(e) {
       e.preventDefault();
@@ -83,32 +80,6 @@ export default {
       // this.uploadFile(this.file,this);
       this.$emit("upload-file", this.file);
     },
-    // uploadFile(file,context) {
-    //   if (file != null) {
-    //     const config = {
-    //       headers: { "content-type": "multipart/form-data" },
-    //     };
-
-    //     let formData = new FormData();
-    //     formData.append("file", file);
-
-    //     axios
-    //       .post("/upload", formData, config)
-    //       .then(function (response) {
-    //         // this.success = response.data.success;
-    //         console.log(file);
-    //         console.log("Success");
-
-    //         context.$emit("upload-file", file);
-    //       })
-    //       .catch(function (error) {
-    //         // this.output = error;
-    //         console.log(error);
-    //       });
-    //   } else {
-    //     console.log("Please Select Files");
-    //   }
-    // },
   },
 };
 </script>
