@@ -14,32 +14,43 @@ class FileController extends Controller
         if ($request->hasFile('file')) {
             if (!empty($request->file)) {
 
-                // store file 
+                // get file from request 
+                $sendMail = $request->sendMail;
+                // return $sendMail;
                 $file = $request->file;
 
-                // get params from request
+                // store file 
                 $fid = substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ"), 0, 20);
                 $tempName = $fid . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public', $tempName);
 
-                $title = $request->title;
-                $filename = $file->getClientOriginalName();
-                $rmail = $request->rmail;
-                $smail = $request->smail;
-                $msg = $request->rmail;
-                $name = $request->name;
+                if($sendMail==true){
+                    
+                    $subject = $request->subject;
+                    $filename = $file->getClientOriginalName();
+                    $rmail = $request->rmail;
+                    $smail = $request->smail;
+                    $msg = $request->rmail;
+                    $name = $request->name;
+                }else{
+                    
+                    $subject = $request->subject;
+                    $filename = $file->getClientOriginalName();
+                    $rmail = "NULL";
+                    $smail = $request->smail;
+                    $msg = "NULL";
+                    $name = $request->name;
+                }
+
                 $code = mt_rand(111111, 999999);
                 $link = 'https://onlinedatatransfer.com/download/' . $tempName;
 
                 // insert query
 
-                // DB::insert('insert into share_files 
-                // (title,fid,recipient_email,sender_email,message,code,sharable_link,created_at,updated_at) 
-                // values (?, ?,?,?,?,?,?,?,?)', [$title,$fid, $rmail, $smail,$msg,$code,$link,now(),now()]);
-
-                DB::table('share_files')->insert([
-                    'title' =>  $title,
+                $result = DB::table('share_files')->insert([
+                    'subject' =>  $subject,
                     'fid' =>  $fid,
+                    'name' =>  $name,
                     'filename' =>  $filename,
                     'recipient_email' =>  $rmail,
                     'sender_email' =>  $smail,
@@ -57,13 +68,12 @@ class FileController extends Controller
                 ];
 
 
-                // Mail::send('email_file', ['name' => $name, 'email' => $rmail, 'title' => $title, 'content' => $content], function ($message) {
+                if($sendMail=='true'){
 
-                //     $message->to('')->subject('Subject of the message!');
-                // });
-                Mail::to($rmail)->send(new \App\Mail\MailService($details));
+                    Mail::to($rmail)->send(new \App\Mail\MailService($details));
+                }
 
-                return 'Upload Successful.';
+                return 'Upload Successful.'.$result;
             }
         } else {
 

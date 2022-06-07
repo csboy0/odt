@@ -78,6 +78,10 @@ export default {
     },
     startUpload(){
       // this.uploadFile(this.file,this);
+      if (this.file == null){
+        alert("Please Select a file first!");
+        return;
+      }
       this.$emit("upload-file", this.file);
     },
   },

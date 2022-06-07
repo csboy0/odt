@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('share_files', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
+            $table->string('subject')->nullable();
             $table->longText('fid');
+            $table->string('name');
             $table->string('filename')->nullable();
-            $table->string('recipient_email');
+            $table->string('recipient_email')->nullable();
             $table->string('sender_email')->nullable();
             $table->longText('message')->nullable();
             $table->string('code');

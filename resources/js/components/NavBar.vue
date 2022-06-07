@@ -24,48 +24,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* 
-.navbar {
-    width: 100vw;
-    height: 3.5rem;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
-.navbar img {
-    height: 2rem;
-    margin: 25px;
-}
-
- .menu {
-    margin-top: 15px;
-    margin-right: 50px;
-    border: 1px solid rgba(0,0,0,0.2);
-    border-radius: 0.5rem;
-    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
-}
-a{
-    text-decoration: none;
-    color: #2c3034;
-}
-
-.menu ul {
-    display: flex;
-    list-style: none;
-}.menu li {
-    padding: 10px 15px;
-}
-
-.navbar h1 {
-    font-size: 1.2rem;
-    margin-left: 25px;
-    margin-top: 15px;
-    color: black;
-}
-
-.navbar span {
-    color: blue;
-}  */
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="position-absolute w-[35vw] top-18 h-[70vh]">
     <div
       id="popup"
       class="
@@ -45,7 +45,7 @@
         class="text-center flex flex-col items-center"
       >
         <input
-          id="r-mail"
+          id="sf-r-mail"
           required
           class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
           placeholder="Recipient's Email"
@@ -53,7 +53,7 @@
           type="text"
         />
         <input
-          id="s-mail"
+          id="sf-s-mail"
           required
           class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
           placeholder="Your Email"
@@ -61,7 +61,7 @@
           type="text"
         />
         <input
-          id="name"
+          id="sf-in-name"
           required
           class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
           placeholder="Your Name (Optional)"
@@ -69,21 +69,21 @@
           type="text"
         />
         <input
-          id="title"
+          id="sf-title"
           class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
           placeholder="Subject"
-          :value="this.titleS"
+          :value="this.subject"
           type="text"
         />
         <textarea
-          id="msg"
+          id="sf-msg"
           class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
           placeholder="Your message here..."
           name=""
           :value="this.msgS"
           cols="20"
           rows="5"
-        ></textarea>
+        ></textarea> 
         <div class="form-check form-switch">
           <input
             class="
@@ -112,7 +112,7 @@
         </div>
         <button
           id="submit-btn my-2"
-          @click="sendFile"
+          @click="shareFile"
           class="bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold"
         >
           Send >
@@ -135,7 +135,7 @@
           type="text"
         />
         <input
-          id="name"
+          id="in-name"
           required
           class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
           placeholder="Your Name (Optional)"
@@ -143,16 +143,16 @@
           type="text"
         />
         <input
-          id="title"
+          id="subject"
           class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
           placeholder="Subject"
-          :value="this.titleS"
+          :value="this.subject"
           type="text"
         />
 
         <button
           id="submit-btn my-2"
-          @click="sendFile"
+          @click="createLink"
           class="bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold"
         >
           Create Link +
@@ -169,23 +169,40 @@ export default {
     closePopUp() {
       this.$emit("close-popup");
     },
-    sendFile() {
-      this.rMail = document.getElementById("r-mail").value;
+    createLink() {
       this.sMail = document.getElementById("s-mail").value;
-      this.titleS = document.getElementById("title").value;
-      this.msgS = document.getElementById("msg").value;
-      this.name = document.getElementById("name").value;
-      const config = {
-        headers: { "content-type": "multipart/form-data" },
-      };
+      this.name = document.getElementById("in-name").value;
+      console.log(this.sMail,this.name);
+      this.subject = document.getElementById("subject").value;
+      let formData = new FormData();
+      formData.append("file", this.file);
+      formData.append("smail", this.sMail);
+      formData.append("name", this.name);
+      formData.append("subject", this.subject);
+      formData.append("sendMail", false);
+      this.uploadToServer(formData);
+    },
+    shareFile() {
+      this.rMail = document.getElementById("sf-r-mail").value;
+      this.sMail = document.getElementById("sf-s-mail").value;
+      this.subject = document.getElementById("sf-subject").value;
+      this.msgS = document.getElementById("sf-msg").value;
+      this.name = document.getElementById("sf-in-name").value;
       let formData = new FormData();
       formData.append("file", this.file);
       formData.append("rmail", this.rMail);
       formData.append("smail", this.sMail);
-      formData.append("title", this.titleS);
+      formData.append("subject", this.subject);
       formData.append("name", this.name);
       formData.append("msg", this.msgS);
+      formData.append("sendMail", true);
+      this.uploadToServer(formData);
 
+    },
+    uploadToServer(formData) {
+      const config = {
+        headers: { "content-type": "multipart/form-data" },
+      };
       axios
         .post("/upload", formData, config)
         .then((res) => {
@@ -193,10 +210,13 @@ export default {
             this.msgS = "";
             this.rMail = "";
             this.sMail = "";
-            this.titleS = "";
+            this.subject = "";
+            this.name = "";
             this.closePopUp();
-            console.log("Upload Success!");
+            // this.$emit("t-success", res.data);
+            console.log(res);
             alert("Upload Sucess!");
+          
           }
         })
         .catch((error) => {
@@ -214,15 +234,17 @@ export default {
   },
   data() {
     return {
-      file: null,
       sMail: "",
       msgS: "",
-      titleS: "",
+      subject: "",
       rMail: "",
       name: "",
       selectOne: true,
     };
   },
+  props:{
+    file:null
+  }
 };
 </script>
 

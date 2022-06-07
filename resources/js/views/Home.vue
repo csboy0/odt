@@ -7,11 +7,13 @@
       <Promo />
     </div>
     <ShareModal
-      class="position-fixed w-[35vw] top-18 h-[70vh]"
       @close-popup="closePopUp"
+      @t-success="transferSuccess"
       :file="this.file"
       v-show="popup"
     />
+    <CompletedModal
+    v-show="this.istransferSuccess"/>
   </div>
 </template>
 
@@ -19,6 +21,7 @@
 import UploadView from "../components/UploadView.vue";
 import Promo from "../components/Promo.vue";
 import ShareModal from "../components/ShareModal.vue";
+import CompletedModal from "../components/CompletedModal.vue";
 export default {
   name: "HomeComponent",
   props: {
@@ -26,7 +29,7 @@ export default {
       type: String,
     },
   },
-  components: { UploadView, Promo, ShareModal },
+  components: { UploadView, Promo, ShareModal,CompletedModal },
   data: () => ({
     file: null,
     sMail: "",
@@ -35,14 +38,19 @@ export default {
     rMail: "",
     name: "",
     popup: false,
+    istransferSuccess:false,
   }),
   methods: {
     closePopUp() {
       this.popup = false;
     },
     uploadfile(file) {
+      
       this.popup = true;
       this.file = file;
+    },
+    transferSuccess(success){
+      this.istransferSuccess=true;
     },
   },
 };
