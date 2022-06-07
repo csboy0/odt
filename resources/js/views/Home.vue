@@ -7,7 +7,7 @@
       <Promo />
     </div>
     <ShareModal
-      class="position-fixed w-[35vw] top-10 h-[70vh]"
+      class="position-fixed w-[35vw] top-18 h-[70vh]"
       @close-popup="closePopUp"
       :file="this.file"
       v-show="popup"

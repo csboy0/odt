@@ -5538,6 +5538,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     closePopUp: function closePopUp() {
@@ -5555,14 +5614,7 @@ __webpack_require__.r(__webpack_exports__);
         headers: {
           "content-type": "multipart/form-data"
         }
-      }; // var params = {
-      //   rmail: rMail,
-      //   smail: sMail,
-      //   title: titleS,
-      //   msg: msgS,
-      //   file: this.file,
-      // };
-
+      };
       var formData = new FormData();
       formData.append("file", this.file);
       formData.append("rmail", this.rMail);
@@ -5586,6 +5638,12 @@ __webpack_require__.r(__webpack_exports__);
         // this.output = error;
         console.log(error);
       });
+    },
+    sharefiles: function sharefiles() {
+      this.selectOne = true;
+    },
+    createlink: function createlink() {
+      this.selectOne = false;
     }
   },
   data: function data() {
@@ -5595,7 +5653,8 @@ __webpack_require__.r(__webpack_exports__);
       msgS: "",
       titleS: "",
       rMail: "",
-      name: ""
+      name: "",
+      selectOne: true
     };
   }
 });
@@ -11158,7 +11217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.select-choice[data-v-7965c3b9]{\r\n    font-weight: 400;\r\n    color:#333;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.select-choice[data-v-7965c3b9] {\r\n  font-weight: 400;\r\n  color: #333;\r\n  background-color: rgb(180, 208, 255);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30171,75 +30230,178 @@ var render = function () {
           on: { click: _vm.closePopUp },
         }),
         _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c("input", {
-          staticClass:
-            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-          attrs: {
-            id: "r-mail",
-            required: "",
-            placeholder: "Recipient's Email",
-            type: "text",
-          },
-          domProps: { value: this.rMail },
-        }),
-        _vm._v(" "),
-        _c("input", {
-          staticClass:
-            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-          attrs: {
-            id: "s-mail",
-            required: "",
-            placeholder: "Your Email",
-            type: "text",
-          },
-          domProps: { value: this.sMail },
-        }),
-        _vm._v(" "),
-        _c("input", {
-          staticClass:
-            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-          attrs: {
-            id: "name",
-            required: "",
-            placeholder: "Your Name (Optional)",
-            type: "text",
-          },
-          domProps: { value: this.name },
-        }),
-        _vm._v(" "),
-        _c("input", {
-          staticClass:
-            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-          attrs: { id: "title", placeholder: "Subject", type: "text" },
-          domProps: { value: this.titleS },
-        }),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass:
-            "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-          attrs: {
-            id: "msg",
-            placeholder: "Your message here...",
-            name: "",
-            cols: "20",
-            rows: "5",
-          },
-          domProps: { value: this.msgS },
-        }),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
         _c(
-          "button",
+          "div",
           {
             staticClass:
-              "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
-            attrs: { id: "submit-btn my-2" },
-            on: { click: _vm.sendFile },
+              "w-full text-center mt-5 border-y-2 border-slate-300 flex",
           },
-          [_vm._v("\n      Send >\n    ")]
+          [
+            _c(
+              "h1",
+              {
+                staticClass: "mb-0 cursor-pointer flex-1 py-2 text-lg",
+                class: { "select-choice": this.selectOne },
+                on: { click: this.sharefiles },
+              },
+              [_vm._v("\n        Share File\n      ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "h1",
+              {
+                staticClass: "mb-0 cursor-pointer flex-1 py-2 text-lg",
+                class: { "select-choice": !this.selectOne },
+                on: { click: this.createlink },
+              },
+              [_vm._v("\n        Create Link\n      ")]
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: this.selectOne,
+                expression: "this.selectOne",
+              },
+            ],
+            staticClass: "text-center flex flex-col items-center",
+            attrs: { id: "sf-view" },
+          },
+          [
+            _c("input", {
+              staticClass:
+                "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+              attrs: {
+                id: "r-mail",
+                required: "",
+                placeholder: "Recipient's Email",
+                type: "text",
+              },
+              domProps: { value: this.rMail },
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass:
+                "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+              attrs: {
+                id: "s-mail",
+                required: "",
+                placeholder: "Your Email",
+                type: "text",
+              },
+              domProps: { value: this.sMail },
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass:
+                "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+              attrs: {
+                id: "name",
+                required: "",
+                placeholder: "Your Name (Optional)",
+                type: "text",
+              },
+              domProps: { value: this.name },
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass:
+                "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+              attrs: { id: "title", placeholder: "Subject", type: "text" },
+              domProps: { value: this.titleS },
+            }),
+            _vm._v(" "),
+            _c("textarea", {
+              staticClass:
+                "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+              attrs: {
+                id: "msg",
+                placeholder: "Your message here...",
+                name: "",
+                cols: "20",
+                rows: "5",
+              },
+              domProps: { value: this.msgS },
+            }),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
+                attrs: { id: "submit-btn my-2" },
+                on: { click: _vm.sendFile },
+              },
+              [_vm._v("\n        Send >\n      ")]
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !this.selectOne,
+                expression: "!this.selectOne",
+              },
+            ],
+            staticClass: "text-center flex flex-col items-center",
+            attrs: { id: "cl-view" },
+          },
+          [
+            _c("input", {
+              staticClass:
+                "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+              attrs: {
+                id: "s-mail",
+                required: "",
+                placeholder: "Your Email",
+                type: "text",
+              },
+              domProps: { value: this.sMail },
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass:
+                "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+              attrs: {
+                id: "name",
+                required: "",
+                placeholder: "Your Name (Optional)",
+                type: "text",
+              },
+              domProps: { value: this.name },
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass:
+                "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+              attrs: { id: "title", placeholder: "Subject", type: "text" },
+              domProps: { value: this.titleS },
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
+                attrs: { id: "submit-btn my-2" },
+                on: { click: _vm.sendFile },
+              },
+              [_vm._v("\n        Create Link +\n      ")]
+            ),
+          ]
         ),
       ]
     ),
@@ -30250,36 +30412,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          " w-full text-center mt-5 border-y-2 border-slate-300  flex",
-      },
-      [
-        _c(
-          "h1",
-          {
-            staticClass:
-              "mb-0 cursor-pointer select-choice flex-1 py-2 text-lg bg-slate-300",
-          },
-          [_vm._v("Share File")]
-        ),
-        _vm._v(" "),
-        _c("h1", { staticClass: "mb-0 cursor-pointer flex-1 py-2 text-lg " }, [
-          _vm._v("Create Link"),
-        ]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-check form-switch" }, [
       _c("input", {
         staticClass:
-          "\n          form-check-input\n          appearance-none\n          w-9\n          -ml-10\n          rounded-full\n          float-left\n          h-5\n          align-top\n          bg-no-repeat bg-contain bg-gray-300\n          focus:outline-none\n          cursor-pointer\n          shadow-sm\n        ",
+          "\n            form-check-input\n            appearance-none\n            w-9\n            -ml-10\n            rounded-full\n            float-left\n            h-5\n            align-top\n            bg-no-repeat bg-contain bg-gray-300\n            focus:outline-none\n            cursor-pointer\n            shadow-sm\n          ",
         attrs: {
           type: "checkbox",
           role: "switch",
@@ -30801,7 +30937,7 @@ var render = function () {
             expression: "popup",
           },
         ],
-        staticClass: "position-fixed w-[35vw] top-10 h-[70vh]",
+        staticClass: "position-fixed w-[35vw] top-18 h-[70vh]",
         attrs: { file: this.file },
         on: { "close-popup": _vm.closePopUp },
       }),
