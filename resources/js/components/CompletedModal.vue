@@ -10,7 +10,7 @@
       py-5
       z-50
       px-3
-      w-[35vw]
+      w-[40vw]
       flex flex-col
       items-center
     "
@@ -30,12 +30,18 @@
       alt=""
     />
     <h1 class="text-lg m-2">Its done!</h1>
-    <p class="font-semibold text-slate-500">
+    <p v-if="this.data.type == 'link'" class="font-semibold text-slate-500">
       Hurray! your transfer is complete here is the link for downloading the
       file. Note the transfer link will be only valid till 24 hours after
       creation.
     </p>
+    <p v-else class="font-semibold text-slate-500">
+      Hurray! your transfer is complete the recipient will recieve an email with
+      transfer link soon, Note the transfer link will be only valid till 24
+      hours after creation.
+    </p>
     <div
+      v-if="this.data.type == 'link'"
       class="
         w-full
         m-3
@@ -48,16 +54,39 @@
     >
       <a
         class="text-decoration-none font-semibold text-blue-500"
-        href="https://onlinedatatransfer.com/file/CHHddjGxHDvDJ"
-        >https://onlinedatatransfer.com/file/CHHddjGxHDvDJ</a
+        :href="this.data.link"
+        >{{ this.data.link }}</a
       >
       <i class="fas fa-copy text-2xl text-slate-500 cursor-pointer"></i>
     </div>
+    <button
+      class="
+        bg-slate-700
+        border-2
+        text-white
+        font-semibold
+        border-white
+        py-2
+        px-4
+      "
+    >
+      Ok
+    </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    data: {
+      default: {
+        link: "",
+        type: "",
+      },
+    },
+    link: "",
+  },
+};
 </script>
 
 <style  scoped>

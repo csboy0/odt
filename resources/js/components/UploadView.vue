@@ -30,8 +30,7 @@
       @click="startUpload"
       value="Upload"
     />
-
-    
+  
   </div>
 </template>
 
@@ -50,7 +49,7 @@ export default {
         .value.replace(/.*(\/|\\)/, "");
       document.getElementById("file-name").innerText = filename;
       document.getElementById("u-tip").innerText = "Click Upload to Proceed...";
-      this.file = document.getElementById('browse').files[0];
+      this.file = document.getElementById("browse").files[0];
     },
     OnDragEnter(e) {
       e.preventDefault();
@@ -76,9 +75,9 @@ export default {
       this.file = files[0];
       console.log(this.file);
     },
-    startUpload(){
+    startUpload() {
       // this.uploadFile(this.file,this);
-      if (this.file == null){
+      if (this.file == null) {
         alert("Please Select a file first!");
         return;
       }

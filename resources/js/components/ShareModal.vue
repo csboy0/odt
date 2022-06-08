@@ -83,7 +83,7 @@
           :value="this.msgS"
           cols="20"
           rows="5"
-        ></textarea> 
+        ></textarea>
         <div class="form-check form-switch">
           <input
             class="
@@ -160,11 +160,18 @@
       </div>
       <!-- Create Link View -->
     </div>
+    <ProgressBar
+      :progress="uploadProgress"
+      v-show="isloading"
+      class="position-fixed z-20 top-0 left-0"
+    />
   </div>
 </template>
 
 <script>
+import ProgressBar from "./ProgressBar.vue";
 export default {
+  components: { ProgressBar },
   methods: {
     closePopUp() {
       this.$emit("close-popup");
@@ -172,7 +179,7 @@ export default {
     createLink() {
       this.sMail = document.getElementById("s-mail").value;
       this.name = document.getElementById("in-name").value;
-      console.log(this.sMail,this.name);
+      console.log(this.sMail, this.name);
       this.subject = document.getElementById("subject").value;
       let formData = new FormData();
       formData.append("file", this.file);
@@ -197,31 +204,36 @@ export default {
       formData.append("msg", this.msgS);
       formData.append("sendMail", true);
       this.uploadToServer(formData);
-
     },
     uploadToServer(formData) {
+      this.isloading = true;
       const config = {
         headers: { "content-type": "multipart/form-data" },
       };
       axios
-        .post("/upload", formData, config)
+        .post(
+          "/upload",
+          formData,
+          {
+            onUploadProgress: (e) => {
+              if (e.lengthComputable) {
+                this.uploadProgress = Math.round((e.loaded / e.total) * 100);
+                console.log(this.uploadProgress);
+              }
+            },
+          },
+          config
+        )
         .then((res) => {
           if (res.status == 200) {
-            this.msgS = "";
-            this.rMail = "";
-            this.sMail = "";
-            this.subject = "";
-            this.name = "";
-            this.closePopUp();
-            // this.$emit("t-success", res.data);
             console.log(res);
-            alert("Upload Sucess!");
-          
+            this.uploadfinish(1, res.data);
           }
         })
         .catch((error) => {
           // this.output = error;
           console.log(error);
+          this.uploadfinish(1, error);
         });
     },
 
@@ -230,6 +242,27 @@ export default {
     },
     createlink() {
       this.selectOne = false;
+    },
+    uploadfinish(s, data) {
+      this.isloading = false;
+      this.uploadProgress = 0;
+      this.msgS = "";
+      this.rMail = "";
+      this.sMail = "";
+      this.subject = "";
+      this.name = "";
+      this.closePopUp();
+      if (s == 1) {
+        setTimeout(() => {
+          this.$emit("t-success", data);
+        }, 500);
+        // alert("Upload Sucess!");
+      } else {
+        setTimeout(() => {
+          this.$emit("t-fail", data);
+        }, 500);
+        // alert("Upload Failed!");
+      }
     },
   },
   data() {
@@ -240,11 +273,13 @@ export default {
       rMail: "",
       name: "",
       selectOne: true,
+      isloading: false,
+      uploadProgress: 0,
     };
   },
-  props:{
-    file:null
-  }
+  props: {
+    file: null,
+  },
 };
 </script>
 

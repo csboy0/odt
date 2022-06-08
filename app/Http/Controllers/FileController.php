@@ -24,7 +24,7 @@ class FileController extends Controller
                 $tempName = $fid . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public', $tempName);
 
-                if($sendMail==true){
+                if($sendMail=='true'){
                     
                     $subject = $request->subject;
                     $filename = $file->getClientOriginalName();
@@ -32,6 +32,7 @@ class FileController extends Controller
                     $smail = $request->smail;
                     $msg = $request->rmail;
                     $name = $request->name;
+                    $type='share';
                 }else{
                     
                     $subject = $request->subject;
@@ -40,6 +41,7 @@ class FileController extends Controller
                     $smail = $request->smail;
                     $msg = "NULL";
                     $name = $request->name;
+                    $type='link';
                 }
 
                 $code = mt_rand(111111, 999999);
@@ -73,7 +75,10 @@ class FileController extends Controller
                     Mail::to($rmail)->send(new \App\Mail\MailService($details));
                 }
 
-                return 'Upload Successful.'.$result;
+                return response()->json([
+                    'type' => $type,
+                    'link' => $link,
+                ]);
             }
         } else {
 

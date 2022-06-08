@@ -9,11 +9,11 @@
     <ShareModal
       @close-popup="closePopUp"
       @t-success="transferSuccess"
+      @t-fail="transferFailed"
       :file="this.file"
       v-show="popup"
     />
-    <CompletedModal
-    v-show="this.istransferSuccess"/>
+    <CompletedModal :data="filedata" v-show="this.istransferComplete" />
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
       type: String,
     },
   },
-  components: { UploadView, Promo, ShareModal,CompletedModal },
+  components: { UploadView, Promo, ShareModal, CompletedModal },
   data: () => ({
     file: null,
     sMail: "",
@@ -38,19 +38,23 @@ export default {
     rMail: "",
     name: "",
     popup: false,
-    istransferSuccess:false,
+    istransferComplete: false,
+    filedata:{}
   }),
   methods: {
     closePopUp() {
       this.popup = false;
     },
     uploadfile(file) {
-      
       this.popup = true;
       this.file = file;
     },
-    transferSuccess(success){
-      this.istransferSuccess=true;
+    transferSuccess(data) {
+      this.istransferComplete = true;
+      this.filedata=data;
+    },
+    transferFailed(data) {
+      this.istransferComplete = true;
     },
   },
 };
