@@ -69,7 +69,7 @@
           type="text"
         />
         <input
-          id="sf-title"
+          id="sf-subject"
           class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
           placeholder="Subject"
           :value="this.subject"
@@ -112,7 +112,7 @@
         </div>
         <button
           id="submit-btn my-2"
-          @click="shareFile"
+          @click="this.shareFile"
           class="bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold"
         >
           Send >

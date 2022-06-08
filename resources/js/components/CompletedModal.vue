@@ -60,6 +60,7 @@
       <i class="fas fa-copy text-2xl text-slate-500 cursor-pointer"></i>
     </div>
     <button
+    @click="this.done"
       class="
         bg-slate-700
         border-2
@@ -86,6 +87,12 @@ export default {
     },
     link: "",
   },
+  methods:{
+
+    done(){
+      this.$emit("done");
+    }
+  }
 };
 </script>
 

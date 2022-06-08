@@ -13,7 +13,7 @@
       :file="this.file"
       v-show="popup"
     />
-    <CompletedModal :data="filedata" v-show="this.istransferComplete" />
+    <CompletedModal @done="finish" :data="filedata" v-show="this.istransferComplete" />
   </div>
 </template>
 
@@ -32,11 +32,6 @@ export default {
   components: { UploadView, Promo, ShareModal, CompletedModal },
   data: () => ({
     file: null,
-    sMail: "",
-    msgS: "",
-    titleS: "",
-    rMail: "",
-    name: "",
     popup: false,
     istransferComplete: false,
     filedata:{}
@@ -56,6 +51,13 @@ export default {
     transferFailed(data) {
       this.istransferComplete = true;
     },
+    finish(){
+      this.file=null;
+      this.popup=false;
+      this.istransferComplete=false;
+      this.filedata={};
+      window.location.reload();
+    }
   },
 };
 </script>

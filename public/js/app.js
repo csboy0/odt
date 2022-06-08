@@ -5445,6 +5445,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     data: {
@@ -5454,6 +5455,11 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     link: ""
+  },
+  methods: {
+    done: function done() {
+      this.$emit("done");
+    }
   }
 });
 
@@ -6258,11 +6264,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       file: null,
-      sMail: "",
-      msgS: "",
-      titleS: "",
-      rMail: "",
-      name: "",
       popup: false,
       istransferComplete: false,
       filedata: {}
@@ -6282,6 +6283,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     transferFailed: function transferFailed(data) {
       this.istransferComplete = true;
+    },
+    finish: function finish() {
+      this.file = null;
+      this.popup = false;
+      this.istransferComplete = false;
+      this.filedata = {};
+      window.location.reload();
     }
   }
 });
@@ -30985,6 +30993,7 @@ var render = function () {
         {
           staticClass:
             "\n      bg-slate-700\n      border-2\n      text-white\n      font-semibold\n      border-white\n      py-2\n      px-4\n    ",
+          on: { click: this.done },
         },
         [_vm._v("\n    Ok\n  ")]
       ),
@@ -31337,7 +31346,11 @@ var render = function () {
               _c("input", {
                 staticClass:
                   "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: { id: "sf-title", placeholder: "Subject", type: "text" },
+                attrs: {
+                  id: "sf-subject",
+                  placeholder: "Subject",
+                  type: "text",
+                },
                 domProps: { value: this.subject },
               }),
               _vm._v(" "),
@@ -31362,7 +31375,7 @@ var render = function () {
                   staticClass:
                     "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
                   attrs: { id: "submit-btn my-2" },
-                  on: { click: _vm.shareFile },
+                  on: { click: this.shareFile },
                 },
                 [_vm._v("\n        Send >\n      ")]
               ),
@@ -31994,6 +32007,7 @@ var render = function () {
           },
         ],
         attrs: { data: _vm.filedata },
+        on: { done: _vm.finish },
       }),
     ],
     1
