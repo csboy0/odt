@@ -43,6 +43,7 @@
 
 <script>
 import axios from "axios";
+import {saveAs} from 'file-saver';
 
 export default {
   name: "Download",
@@ -74,8 +75,9 @@ export default {
         .post("/download", {
           url: this.fileinfo.download_link,
           filename: this.fileinfo.filename,
-        })
+        },{responseType: 'blob'})
         .then((res) => {
+          saveAs(res.data, this.fileinfo.filename);
           console.log(res);
         })
         .catch((err) => {
