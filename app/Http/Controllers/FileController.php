@@ -45,8 +45,8 @@ class FileController extends Controller
                 }
 
                 $code = mt_rand(111111, 999999);
-                $slink = 'https://onlinedatatransfer.com/files/'.$fid;
-                $dlink = 'https://onlinedatatransfer.com/' . 'storage/' . 'app' . '/public/' . $tempName;;
+                $slink = 'https://onlinedatatransfer.com/files/' . $fid;
+                $dlink = 'https://onlinedatatransfer.com/' . 'storage/' . 'app'   . $tempName;;
 
                 // insert query
 
@@ -98,12 +98,12 @@ class FileController extends Controller
     {
         $headers = array(
             'Content-Type: image/jpg',
-          );
+        );
         $url = $request->url;
         $filename = $request->filename;
         if (file_exists($url)) {
             return response()->download($url);
         }
-        return response()->download($url,$filename,$headers);
+        return response()->download($url, $filename, $headers);
     }
 }
