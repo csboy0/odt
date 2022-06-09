@@ -46,7 +46,7 @@ class FileController extends Controller
 
                 $code = mt_rand(111111, 999999);
                 $slink = 'https://onlinedatatransfer.com/files/'.$fid;
-                $dlink = 'https://onlinedatatransfer.com/' . storage_path() . '/' . 'app' . '/public/' . $tempName;;
+                $dlink = 'https://onlinedatatransfer.com/' . 'storage/' . 'app' . '/public/' . $tempName;;
 
                 // insert query
 
