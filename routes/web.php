@@ -10,4 +10,6 @@ Route::get('/', function () {
 });
 Route::get('/{any}', [SpaController::class,'index'])->where('any', '.*');
 Route::post('upload',[FileController::class,'upload'])->name('upload');
-// Route::post('/download/{any}',[FileController::class,'download'])->where('any', '.*');
+Route::post('files',[FileController::class,'files'])->name('files');
+Route::post('download',[FileController::class,'download'])->name('download');
+// Route::('files','FileController@files');

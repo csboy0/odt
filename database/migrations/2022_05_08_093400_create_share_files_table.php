@@ -24,6 +24,7 @@ return new class extends Migration
             $table->longText('message')->nullable();
             $table->string('code');
             $table->string('sharable_link');
+            $table->string('download_link');
             $table->timestamps();
         });
     }

@@ -6182,6 +6182,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -6204,8 +6206,68 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Download"
+  name: "Download",
+  created: function created() {
+    console.log("At Created", this.$route.params.slug);
+    this.getFile();
+  },
+  data: function data() {
+    return {
+      fileinfo: {}
+    };
+  },
+  methods: {
+    getFile: function getFile(e) {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/files", {
+        fid: this.$route.params.slug
+      }).then(function (res) {
+        console.log(res);
+
+        _this.setupInfo(res.data);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    downloadFile: function downloadFile(e) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/download", {
+        url: this.fileinfo.download_link,
+        filename: this.fileinfo.filename
+      }).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    setupInfo: function setupInfo(data) {
+      this.fileinfo = data[0];
+      console.log(this.fileinfo);
+    }
+  }
 });
 
 /***/ }),
@@ -6331,7 +6393,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
     name: 'home',
     component: _views_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/download',
+    path: '/files/:slug',
     name: 'Download',
     component: _views_Download__WEBPACK_IMPORTED_MODULE_1__["default"]
   }, {
@@ -31898,48 +31960,67 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "flex flex-col items-center mx-32 my-5" }, [
+    _c("img", {
+      staticClass: "h-36 w-36",
+      attrs: { id: "file-prev", src: "/images/file.gif", alt: "" },
+    }),
+    _vm._v(" "),
+    _c("label", { staticClass: "text-lg m-2", attrs: { for: "file-prev" } }, [
+      _vm._v(_vm._s(_vm.fileinfo.filename)),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "details flex flex-col" }, [
+      _c("div", { staticClass: "share-info flex flex-row justify-between" }, [
+        _c("p", { staticClass: "text-lg" }, [
+          _vm._v("File Shared by " + _vm._s(_vm.fileinfo.name)),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-base" }, [
+          _vm._v(_vm._s(_vm.fileinfo.created_at)),
+        ]),
+      ]),
+      _vm._v(" "),
+      _vm.fileinfo.message == "NULL"
+        ? _c("p", { staticClass: "w-2/3 self-center" }, [
+            _vm._v(
+              "\n      This is a auto generated message in reference of file named\n      " +
+                _vm._s(_vm.fileinfo.filename) +
+                " by " +
+                _vm._s(_vm.fileinfo.name) +
+                " at\n      " +
+                _vm._s(_vm.fileinfo.created_at) +
+                " , the sender's email id is\n      " +
+                _vm._s(_vm.fileinfo.sender_email) +
+                " you can download the file by clicking the\n      download button below.\n    "
+            ),
+          ])
+        : _c("p", { staticClass: "w-2/3 self-center" }, [
+            _vm._v(
+              "\n     " +
+                _vm._s(_vm.fileinfo.message) +
+                ". File Shared by " +
+                _vm._s(_vm.fileinfo.sender_email) +
+                ", you can download the file by clicking the\n      download button below.\n    "
+            ),
+          ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "\n        w-fit\n        tracking-wider\n        self-center\n        mt-3\n        bg-blue-600\n        py-2.5\n        px-5\n        rounded-lg\n        shadow-md\n        text-white\n        font-bold\n      ",
+          on: { click: _vm.downloadFile },
+        },
+        [
+          _vm._v("\n      Download "),
+          _c("i", { staticClass: "bi bi-arrow-down" }),
+        ]
+      ),
+    ]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-col items-center mx-32 my-5" }, [
-      _c("img", {
-        staticClass: "h-36 w-36",
-        attrs: { id: "file-prev", src: "/images/file.gif", alt: "" },
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "text-lg m-2", attrs: { for: "file-prev" } }, [
-        _vm._v("Filename.xyz"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "details flex flex-col " }, [
-        _c("div", { staticClass: "share-info flex flex-row justify-between" }, [
-          _c("p", { staticClass: "text-lg" }, [_vm._v("File Shared by xyz")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-base" }, [_vm._v("25 May")]),
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In rerum illo\n      vitae consectetur voluptate quos enim ipsum temporibus tenetur nemo,\n      tempore unde adipisci reprehenderit voluptas quas tempora inventore\n      laborum veniam!\n    "
-          ),
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              " w-fit tracking-wider self-center mt-3 bg-blue-600 py-2.5 px-5 rounded-lg shadow-md text-white font-bold",
-          },
-          [_vm._v("Download "), _c("i", { staticClass: "bi bi-arrow-down" })]
-        ),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -19,7 +19,7 @@ const router = new VueRouter({
             component: HomeComponent
         },
         {
-            path: '/download',
+            path: '/files/:slug',
             name: 'Download',
             component: Download,
         },
