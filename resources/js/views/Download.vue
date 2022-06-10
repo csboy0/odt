@@ -16,11 +16,11 @@
         download button below.
       </p>
       <p class="w-2/3 self-center" v-else>
-       {{fileinfo.message}}. File Shared by {{fileinfo.sender_email}}, you can download the file by clicking the
-        download button below.
+        {{ fileinfo.message }}. File Shared by {{ fileinfo.sender_email }}, you
+        can download the file by clicking the download button below.
       </p>
       <button
-      @click="downloadFile"
+        @click="downloadFile"
         class="
           w-fit
           tracking-wider
@@ -43,7 +43,7 @@
 
 <script>
 import axios from "axios";
-import {saveAs} from 'file-saver';
+import { saveAs } from "file-saver";
 
 export default {
   name: "Download",
@@ -72,10 +72,14 @@ export default {
     },
     downloadFile(e) {
       axios
-        .post("/download", {
-          url: this.fileinfo.download_link,
-          filename: this.fileinfo.filename,
-        },{responseType: 'blob'})
+        .post(
+          "/download",
+          {
+            url: this.fileinfo.download_link,
+            filename: this.fileinfo.filename,
+          },
+          { responseType: "blob" }
+        )
         .then((res) => {
           saveAs(res.data, this.fileinfo.filename);
           console.log(res);

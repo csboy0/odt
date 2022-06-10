@@ -6263,7 +6263,7 @@ __webpack_require__.r(__webpack_exports__);
         url: this.fileinfo.download_link,
         filename: this.fileinfo.filename
       }, {
-        responseType: 'blob'
+        responseType: "blob"
       }).then(function (res) {
         (0,file_saver__WEBPACK_IMPORTED_MODULE_1__.saveAs)(res.data, _this2.fileinfo.filename);
         console.log(res);
@@ -32020,11 +32020,11 @@ var render = function () {
           ])
         : _c("p", { staticClass: "w-2/3 self-center" }, [
             _vm._v(
-              "\n     " +
+              "\n      " +
                 _vm._s(_vm.fileinfo.message) +
                 ". File Shared by " +
                 _vm._s(_vm.fileinfo.sender_email) +
-                ", you can download the file by clicking the\n      download button below.\n    "
+                ", you\n      can download the file by clicking the download button below.\n    "
             ),
           ]),
       _vm._v(" "),
