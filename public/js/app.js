@@ -5770,6 +5770,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -31392,77 +31402,91 @@ var render = function () {
               attrs: { id: "sf-view" },
             },
             [
-              _c("input", {
-                staticClass:
-                  "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: {
-                  id: "sf-r-mail",
-                  required: "",
-                  placeholder: "Recipient's Email",
-                  type: "text",
-                },
-                domProps: { value: this.rMail },
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: {
-                  id: "sf-s-mail",
-                  required: "",
-                  placeholder: "Your Email",
-                  type: "text",
-                },
-                domProps: { value: this.sMail },
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: {
-                  id: "sf-in-name",
-                  required: "",
-                  placeholder: "Your Name (Optional)",
-                  type: "text",
-                },
-                domProps: { value: this.name },
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: {
-                  id: "sf-subject",
-                  placeholder: "Subject",
-                  type: "text",
-                },
-                domProps: { value: this.subject },
-              }),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass:
-                  "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: {
-                  id: "sf-msg",
-                  placeholder: "Your message here...",
-                  name: "",
-                  cols: "20",
-                  rows: "5",
-                },
-                domProps: { value: this.msgS },
-              }),
-              _vm._v(" "),
-              _vm._m(0),
-              _vm._v(" "),
               _c(
-                "button",
+                "form",
                 {
-                  staticClass:
-                    "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
-                  attrs: { id: "submit-btn my-2" },
-                  on: { click: this.shareFile },
+                  staticClass: "text-center flex flex-col items-center",
+                  attrs: { method: "post" },
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.shareFile()
+                    },
+                  },
                 },
-                [_vm._v("\n        Send >\n      ")]
+                [
+                  _c("input", {
+                    staticClass:
+                      "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+                    attrs: {
+                      id: "sf-r-mail",
+                      required: "",
+                      placeholder: "Recipient's Email",
+                      type: "email",
+                    },
+                    domProps: { value: this.rMail },
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+                    attrs: {
+                      id: "sf-s-mail",
+                      required: "",
+                      placeholder: "Your Email",
+                      type: "email",
+                    },
+                    domProps: { value: this.sMail },
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+                    attrs: {
+                      id: "sf-in-name",
+                      required: "",
+                      placeholder: "Your Name",
+                      type: "text",
+                    },
+                    domProps: { value: this.name },
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+                    attrs: {
+                      id: "sf-subject",
+                      placeholder: "Subject",
+                      type: "text",
+                    },
+                    domProps: { value: this.subject },
+                  }),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    staticClass:
+                      "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+                    attrs: {
+                      id: "sf-msg",
+                      placeholder: "Your message here...",
+                      name: "",
+                      cols: "20",
+                      rows: "5",
+                    },
+                    domProps: { value: this.msgS },
+                  }),
+                  _vm._v(" "),
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
+                      attrs: { id: "submit-btn my-2", type: "submit" },
+                    },
+                    [_vm._v("\n          Send >\n        ")]
+                  ),
+                ]
               ),
             ]
           ),
@@ -31482,46 +31506,65 @@ var render = function () {
               attrs: { id: "cl-view" },
             },
             [
-              _c("input", {
-                staticClass:
-                  "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: {
-                  id: "s-mail",
-                  required: "",
-                  placeholder: "Your Email",
-                  type: "text",
-                },
-                domProps: { value: this.sMail },
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: {
-                  id: "in-name",
-                  required: "",
-                  placeholder: "Your Name (Optional)",
-                  type: "text",
-                },
-                domProps: { value: this.name },
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
-                attrs: { id: "subject", placeholder: "Subject", type: "text" },
-                domProps: { value: this.subject },
-              }),
-              _vm._v(" "),
               _c(
-                "button",
+                "form",
                 {
-                  staticClass:
-                    "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
-                  attrs: { id: "submit-btn my-2" },
-                  on: { click: _vm.createLink },
+                  staticClass: "text-center flex flex-col items-center",
+                  attrs: { method: "post" },
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.createLink()
+                    },
+                  },
                 },
-                [_vm._v("\n        Create Link +\n      ")]
+                [
+                  _c("input", {
+                    staticClass:
+                      "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+                    attrs: {
+                      id: "s-mail",
+                      required: "",
+                      placeholder: "Your Email",
+                      type: "email",
+                    },
+                    domProps: { value: this.sMail },
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+                    attrs: {
+                      id: "in-name",
+                      required: "",
+                      placeholder: "Your Name",
+                      type: "text",
+                    },
+                    domProps: { value: this.name },
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2",
+                    attrs: {
+                      id: "subject",
+                      required: "",
+                      placeholder: "Subject",
+                      type: "text",
+                    },
+                    domProps: { value: this.subject },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold",
+                      attrs: { id: "submit-btn my-2" },
+                    },
+                    [_vm._v("\n          Create Link +\n        ")]
+                  ),
+                ]
               ),
             ]
           ),
@@ -31552,7 +31595,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "form-check form-switch" }, [
       _c("input", {
         staticClass:
-          "\n            form-check-input\n            appearance-none\n            w-9\n            -ml-10\n            rounded-full\n            float-left\n            h-5\n            align-top\n            bg-no-repeat bg-contain bg-gray-300\n            focus:outline-none\n            cursor-pointer\n            shadow-sm\n          ",
+          "\n              form-check-input\n              appearance-none\n              w-9\n              -ml-10\n              rounded-full\n              float-left\n              h-5\n              align-top\n              bg-no-repeat bg-contain bg-gray-300\n              focus:outline-none\n              cursor-pointer\n              shadow-sm\n            ",
         attrs: {
           type: "checkbox",
           role: "switch",

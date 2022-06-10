@@ -36,7 +36,6 @@
           Create Link
         </h1>
       </div>
-
       <!-- Share Files View -->
 
       <div
@@ -44,119 +43,130 @@
         id="sf-view"
         class="text-center flex flex-col items-center"
       >
-        <input
-          id="sf-r-mail"
-          required
-          class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-          placeholder="Recipient's Email"
-          :value="this.rMail"
-          type="text"
-        />
-        <input
-          id="sf-s-mail"
-          required
-          class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-          placeholder="Your Email"
-          :value="this.sMail"
-          type="text"
-        />
-        <input
-          id="sf-in-name"
-          required
-          class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-          placeholder="Your Name (Optional)"
-          :value="this.name"
-          type="text"
-        />
-        <input
-          id="sf-subject"
-          class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-          placeholder="Subject"
-          :value="this.subject"
-          type="text"
-        />
-        <textarea
-          id="sf-msg"
-          class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-          placeholder="Your message here..."
-          name=""
-          :value="this.msgS"
-          cols="20"
-          rows="5"
-        ></textarea>
-        <div class="form-check form-switch">
-          <input
-            class="
-              form-check-input
-              appearance-none
-              w-9
-              -ml-10
-              rounded-full
-              float-left
-              h-5
-              align-top
-              bg-no-repeat bg-contain bg-gray-300
-              focus:outline-none
-              cursor-pointer
-              shadow-sm
-            "
-            type="checkbox"
-            role="switch"
-            id="flexSwitchCheckDefault"
-          />
-          <label
-            class="form-check-label inline-block text-gray-800"
-            for="flexSwitchCheckDefault"
-            >Protect With Passcode</label
-          >
-        </div>
-        <button
-          id="submit-btn my-2"
-          @click="this.shareFile"
-          class="bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold"
+        <form
+          class="text-center flex flex-col items-center"
+          method="post"
+          @submit.prevent="shareFile()"
         >
-          Send >
-        </button>
+          <input
+            id="sf-r-mail"
+            required
+            class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+            placeholder="Recipient's Email"
+            :value="this.rMail"
+            type="email"
+          />
+          <input
+            id="sf-s-mail"
+            required
+            class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+            placeholder="Your Email"
+            :value="this.sMail"
+            type="email"
+          />
+          <input
+            id="sf-in-name"
+            required
+            class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+            placeholder="Your Name"
+            :value="this.name"
+            type="text"
+          />
+          <input
+            id="sf-subject"
+            class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+            placeholder="Subject"
+            :value="this.subject"
+            type="text"
+          />
+          <textarea
+            id="sf-msg"
+            class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+            placeholder="Your message here..."
+            name=""
+            :value="this.msgS"
+            cols="20"
+            rows="5"
+          ></textarea>
+          <div class="form-check form-switch">
+            <input
+              class="
+                form-check-input
+                appearance-none
+                w-9
+                -ml-10
+                rounded-full
+                float-left
+                h-5
+                align-top
+                bg-no-repeat bg-contain bg-gray-300
+                focus:outline-none
+                cursor-pointer
+                shadow-sm
+              "
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+            />
+            <label
+              class="form-check-label inline-block text-gray-800"
+              for="flexSwitchCheckDefault"
+              >Protect With Passcode</label
+            >
+          </div>
+          <button
+            id="submit-btn my-2"
+            class="bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold"
+            type="submit"
+          >
+            Send >
+          </button>
+        </form>
       </div>
       <!-- Share Files View -->
-
       <!-- Create Link View -->
       <div
         v-show="!this.selectOne"
         id="cl-view"
         class="text-center flex flex-col items-center"
       >
-        <input
-          id="s-mail"
-          required
-          class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-          placeholder="Your Email"
-          :value="this.sMail"
-          type="text"
-        />
-        <input
-          id="in-name"
-          required
-          class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-          placeholder="Your Name (Optional)"
-          :value="this.name"
-          type="text"
-        />
-        <input
-          id="subject"
-          class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
-          placeholder="Subject"
-          :value="this.subject"
-          type="text"
-        />
-
-        <button
-          id="submit-btn my-2"
-          @click="createLink"
-          class="bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold"
+        <form
+          class="text-center flex flex-col items-center"
+          method="post"
+          @submit.prevent="createLink()"
         >
-          Create Link +
-        </button>
+          <input
+            id="s-mail"
+            required
+            class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+            placeholder="Your Email"
+            :value="this.sMail"
+            type="email"
+          />
+          <input
+            id="in-name"
+            required
+            class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+            placeholder="Your Name"
+            :value="this.name"
+            type="text"
+          />
+          <input
+            id="subject"
+            required
+            class="border-2 border-slate-300 py-2 w-[25vw] px-2 rounded-md my-2"
+            placeholder="Subject"
+            :value="this.subject"
+            type="text"
+          />
+
+          <button
+            id="submit-btn my-2"
+            class="bg-blue-500 py-2 my-2 px-8 rounded-md text-white font-bold"
+          >
+            Create Link +
+          </button>
+        </form>
       </div>
       <!-- Create Link View -->
     </div>
