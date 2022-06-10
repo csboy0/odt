@@ -48,6 +48,8 @@ class FileController extends Controller
                 $slink = 'https://onlinedatatransfer.com/files/' . $fid;
                 $dlink =  storage_path() . '/' . 'app' . '/public/' . $tempName; ;
 
+
+
                 // insert query
 
                 $result = DB::table('share_files')->insert([
