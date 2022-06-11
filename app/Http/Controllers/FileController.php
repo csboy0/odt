@@ -46,7 +46,7 @@ class FileController extends Controller
 
                 $code = mt_rand(111111, 999999);
                 $slink = 'https://onlinedatatransfer.com/files/' . $fid;
-                $dlink =  storage_path() . '/' . 'app' . '/public/' . $tempName; ;
+                $dlink =  storage_path() . '/' . 'app' . '/public/' . $tempName;;
 
 
 
@@ -70,7 +70,7 @@ class FileController extends Controller
                 // $content = "File link: " . $link;
                 $details = [
                     'title' => 'Mail from ODT',
-                    'body' => `File Link {{$slink}}`
+                    'body' => `Hello This Email is share to inform you that a file has been shared to you viad odt by {{$smail}} note the transfer is only valid till 24 hrs. Here is the download link for the transfer. {{$slink}}`
                 ];
 
 
