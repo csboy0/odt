@@ -6324,6 +6324,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -11581,7 +11585,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n* {\r\n    margin: 0;\r\n    padding: 0;\n}\n#app{\r\n    height: 100%;\n}\n#root{\r\n    height: 100%;\n}\nhtml, body {\r\n    background-color: #ffffff;\r\n    font-family: 'Ubuntu', sans-serif;\r\n    color: rgb(32, 32, 32);\r\n    height: 100%;\r\n    overflow: hidden\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n* {\r\n    margin: 0;\r\n    padding: 0;\n}\n#app{\r\n    height: 100%;\n}\n#root{\r\n    height: 100%;\n}\nhtml, body {\r\n    background-color: #ffffff;\r\n    font-family: 'Ubuntu', sans-serif;\r\n    color: rgb(32, 32, 32);\r\n    height: 100%;\r\n    overflow: auto\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31299,7 +31303,7 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "flex mt-[6rem] flex-col justify-center items-center p-10",
+        staticClass: "flex mt-[3rem] flex-col justify-center items-center p-10",
       },
       [
         _c("h2", [_vm._v("Simple private file sharing")]),
@@ -31639,7 +31643,7 @@ var render = function () {
   return _c(
     "div",
     {
-      staticClass: "upload-area mt-[6rem] flex items-start",
+      staticClass: "upload-area mt-[3rem] flex items-start",
       class: { dragging: _vm.isDragging },
       on: {
         dragenter: _vm.OnDragEnter,
@@ -31723,69 +31727,73 @@ var staticRenderFns = [
         ),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "flex justify-between mt-5" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md justify-center flex-1",
-          },
-          [
-            _c("img", {
-              staticClass: "h-auto w-16 self-center",
-              attrs: { src: "/images/insignia.png", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Reliable Service")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("yes we are reliable")]),
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md flex-1",
-          },
-          [
-            _c("img", {
-              staticClass: "h-auto w-16 self-center",
-              attrs: { src: "/images/insignia.png", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Best Service")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Quae dolorem eaque nulla earum illo aliquam neque iure\n                similique harum cumque.\n            "
-              ),
-            ]),
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md flex-1",
-          },
-          [
-            _c("img", {
-              staticClass: "h-auto w-16 self-center",
-              attrs: { src: "/images/insignia.png", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Best Service")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Quae dolorem eaque nulla earum illo aliquam neque iure\n                similique harum cumque.\n            "
-              ),
-            ]),
-          ]
-        ),
-      ]),
+      _c(
+        "div",
+        { staticClass: "flex flex-col md:flex-row justify-between mt-5" },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md justify-center flex-1",
+            },
+            [
+              _c("img", {
+                staticClass: "h-auto w-16 self-center",
+                attrs: { src: "/images/insignia.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Reliable Service")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("yes we are reliable")]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md flex-1",
+            },
+            [
+              _c("img", {
+                staticClass: "h-auto w-16 self-center",
+                attrs: { src: "/images/insignia.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Best Service")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Quae dolorem eaque nulla earum illo aliquam neque iure\n                similique harum cumque.\n            "
+                ),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "mx-2 shadow-sm px-5 border-[1px] border-slate-200 py-5 rounded-md flex-1",
+            },
+            [
+              _c("img", {
+                staticClass: "h-auto w-16 self-center",
+                attrs: { src: "/images/insignia.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Best Service")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Quae dolorem eaque nulla earum illo aliquam neque iure\n                similique harum cumque.\n            "
+                ),
+              ]),
+            ]
+          ),
+        ]
+      ),
     ])
   },
 ]
@@ -32109,56 +32117,67 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "flex justify-center h-full px-5" },
-    [
-      _c(
-        "div",
-        { staticClass: "body left h-full flex items-start" },
-        [_c("UploadView", { on: { "upload-file": _vm.uploadfile } })],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "body right h-full flex items-start" },
-        [_c("Promo")],
-        1
-      ),
-      _vm._v(" "),
-      _c("ShareModal", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.popup,
-            expression: "popup",
+  return _c("div", { staticClass: "flex flex-col" }, [
+    _c(
+      "div",
+      { staticClass: "md:flex justify-center md:overflow-hidden  px-3" },
+      [
+        _c(
+          "div",
+          { staticClass: "body left  flex items-start" },
+          [_c("UploadView", { on: { "upload-file": _vm.uploadfile } })],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "body right flex items-start" },
+          [_c("Promo")],
+          1
+        ),
+        _vm._v(" "),
+        _c("ShareModal", {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.popup,
+              expression: "popup",
+            },
+          ],
+          attrs: { file: this.file },
+          on: {
+            "close-popup": _vm.closePopUp,
+            "t-success": _vm.transferSuccess,
+            "t-fail": _vm.transferFailed,
           },
-        ],
-        attrs: { file: this.file },
-        on: {
-          "close-popup": _vm.closePopUp,
-          "t-success": _vm.transferSuccess,
-          "t-fail": _vm.transferFailed,
-        },
-      }),
-      _vm._v(" "),
-      _c("CompletedModal", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: this.istransferComplete,
-            expression: "this.istransferComplete",
-          },
-        ],
-        attrs: { data: _vm.filedata },
-        on: { done: _vm.finish },
-      }),
-    ],
-    1
-  )
+        }),
+        _vm._v(" "),
+        _c("CompletedModal", {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: this.istransferComplete,
+              expression: "this.istransferComplete",
+            },
+          ],
+          attrs: { data: _vm.filedata },
+          on: { done: _vm.finish },
+        }),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          " items-end justify-end mt-5 text-lg font-normal text-slate-500 self-center",
+      },
+      [_vm._v("©onlinedatatransfer.com")]
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

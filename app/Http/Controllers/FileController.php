@@ -70,8 +70,9 @@ class FileController extends Controller
                 // $content = "File link: " . $link;
                 $details = [
                     'title' => 'Mail from ODT',
-                    'body' => `Hello This Email is share to inform you that a file has been shared to you viad odt by {{$smail}} note the transfer is only valid till 24 hrs. Here is the download link for the transfer. {{$slink}}`
+                    'body' => "Hello This Email is share to inform you that a file has been shared to you viad odt by {{$smail}} note the transfer is only valid till 24 hrs. Here is the download link for the transfer. {{$slink}}",
                 ];
+
 
 
                 if ($sendMail == 'true') {

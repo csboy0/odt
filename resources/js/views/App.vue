@@ -45,6 +45,6 @@ html, body {
     font-family: 'Ubuntu', sans-serif;
     color: rgb(32, 32, 32);
     height: 100%;
-    overflow: hidden
+    overflow: auto
 }
 </style>

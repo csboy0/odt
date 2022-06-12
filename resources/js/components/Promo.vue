@@ -1,5 +1,5 @@
 <template>
-  <div class="flex mt-[6rem] flex-col justify-center items-center p-10">
+  <div class="flex mt-[3rem] flex-col justify-center items-center p-10">
     <h2>Simple private file sharing</h2>
     <img class="h-[15rem]" src="/images/monitoring.png" alt="" />
     <p class="my-1">

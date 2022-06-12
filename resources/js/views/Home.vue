@@ -1,9 +1,11 @@
 <template>
-  <div class="flex justify-center h-full px-5">
-    <div class="body left h-full flex items-start">
+<div class="flex flex-col">
+
+  <div class="md:flex justify-center md:overflow-hidden  px-3">
+    <div class="body left  flex items-start">
       <UploadView @upload-file="uploadfile" />
     </div>
-    <div class="body right h-full flex items-start">
+    <div class="body right flex items-start">
       <Promo />
     </div>
     <ShareModal
@@ -15,6 +17,8 @@
     />
     <CompletedModal @done="finish" :data="filedata" v-show="this.istransferComplete" />
   </div>
+    <div class=" items-end justify-end mt-5 text-lg font-normal text-slate-500 self-center">&copy;onlinedatatransfer.com</div>
+</div>
 </template>
 
 <script>

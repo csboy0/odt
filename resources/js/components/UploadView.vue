@@ -1,6 +1,6 @@
 <template>
   <div
-    class="upload-area mt-[6rem] flex items-start"
+    class="upload-area mt-[3rem] flex items-start"
     @dragenter="OnDragEnter"
     @dragleave="OnDragLeave"
     @dragover.prevent

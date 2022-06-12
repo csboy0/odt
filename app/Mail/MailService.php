@@ -30,6 +30,6 @@ class MailService extends Mailable
     public function build()
     {
         return $this->subject('ODT: File Shared')
-            ->view('email_file');
+            ->view('email_file')->with($this->details);
     }
 }
