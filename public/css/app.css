@@ -482,9 +482,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .left-0 {
   left: 0px;
 }
-.bottom-2 {
-  bottom: 0.5rem;
-}
 .z-50 {
   z-index: 50;
 }
@@ -684,9 +681,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-between {
   justify-content: space-between;
 }
-.self-end {
-  align-self: flex-end;
-}
 .self-center {
   align-self: center;
 }
@@ -863,9 +857,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-extralight {
   font-weight: 200;
 }
-.font-medium {
-  font-weight: 500;
-}
 .font-normal {
   font-weight: 400;
 }
@@ -990,10 +981,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:flex-row {
     flex-direction: row;
-  }
-
-  .md\:flex-col {
-    flex-direction: column;
   }
 
   .md\:items-center {

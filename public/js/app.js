@@ -5600,6 +5600,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _ProgressBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProgressBar.vue */ "./resources/js/components/ProgressBar.vue");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../services */ "./resources/js/services/index.js");
 //
 //
 //
@@ -5780,6 +5781,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -5793,32 +5795,48 @@ __webpack_require__.r(__webpack_exports__);
       this.sMail = document.getElementById("s-mail").value;
       this.name = document.getElementById("in-name").value;
       console.log(this.sMail, this.name);
-      this.subject = document.getElementById("subject").value;
-      var formData = new FormData();
-      formData.append("file", this.file);
-      formData.append("smail", this.sMail);
-      formData.append("name", this.name);
-      formData.append("subject", this.subject);
-      formData.append("sendMail", false);
-      this.uploadToServer(formData);
+      this.subject = document.getElementById("subject").value; // let formData = new FormData();
+      // formData.append("file", this.file);
+      // formData.append("smail", this.sMail);
+      // formData.append("name", this.name);
+      // formData.append("subject", this.subject);
+      // formData.append("sendMail", false);
+
+      this.params = {
+        rmail: this.rMail,
+        smail: this.sMail,
+        subject: this.subject,
+        name: this.name,
+        msg: this.msgS,
+        sendMail: false
+      };
+      this.uploadToServer();
     },
     shareFile: function shareFile() {
       this.rMail = document.getElementById("sf-r-mail").value;
       this.sMail = document.getElementById("sf-s-mail").value;
       this.subject = document.getElementById("sf-subject").value;
       this.msgS = document.getElementById("sf-msg").value;
-      this.name = document.getElementById("sf-in-name").value;
-      var formData = new FormData();
-      formData.append("file", this.file);
-      formData.append("rmail", this.rMail);
-      formData.append("smail", this.sMail);
-      formData.append("subject", this.subject);
-      formData.append("name", this.name);
-      formData.append("msg", this.msgS);
-      formData.append("sendMail", true);
-      this.uploadToServer(formData);
+      this.name = document.getElementById("sf-in-name").value; // let formData = new FormData();
+      // formData.append("file", this.file);
+      // formData.append("rmail", this.rMail);
+      // formData.append("smail", this.sMail);
+      // formData.append("subject", this.subject);
+      // formData.append("name", this.name);
+      // formData.append("msg", this.msgS);
+      // formData.append("sendMail", true);
+
+      this.params = {
+        rmail: this.rMail,
+        smail: this.sMail,
+        subject: this.subject,
+        name: this.name,
+        msg: this.msgS,
+        sendMail: true
+      };
+      this.uploadToServer();
     },
-    uploadToServer: function uploadToServer(formData) {
+    uploadToServer: function uploadToServer() {
       var _this = this;
 
       this.isloading = true;
@@ -5827,25 +5845,46 @@ __webpack_require__.r(__webpack_exports__);
           "content-type": "multipart/form-data"
         }
       };
-      axios.post("/upload", formData, {
-        onUploadProgress: function onUploadProgress(e) {
-          if (e.lengthComputable) {
-            _this.uploadProgress = Math.round(e.loaded / e.total * 100);
-            console.log(_this.uploadProgress);
-          }
-        }
-      }, config).then(function (res) {
+      _services__WEBPACK_IMPORTED_MODULE_1__.uploadService.chunk("/upload", this.file, this.params, // onProgress
+      function (percent) {
+        _this.uploadProgress = percent;
+      }, // onError
+      function (err) {
+        console.log(err);
+
+        _this.uploadfinish(1, err);
+      }, // onSuccess
+      function (res) {
         if (res.status == 200) {
           console.log(res);
 
           _this.uploadfinish(1, res.data);
         }
-      })["catch"](function (error) {
-        // this.output = error;
-        console.log(error);
-
-        _this.uploadfinish(1, error);
-      });
+      }); // axios
+      //   .post(
+      //     "/upload",
+      //     formData,
+      //     {
+      //       onUploadProgress: (e) => {
+      //         if (e.lengthComputable) {
+      //           this.uploadProgress = Math.round((e.loaded / e.total) * 100);
+      //           console.log(this.uploadProgress);
+      //         }
+      //       },
+      //     },
+      //     config
+      //   )
+      //   .then((res) => {
+      //     if (res.status == 200) {
+      //       console.log(res);
+      //       this.uploadfinish(1, res.data);
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     // this.output = error;
+      //     console.log(error);
+      //     this.uploadfinish(1, error);
+      //   });
     },
     sharefiles: function sharefiles() {
       this.selectOne = true;
@@ -5885,7 +5924,8 @@ __webpack_require__.r(__webpack_exports__);
       name: "",
       selectOne: true,
       isloading: false,
-      uploadProgress: 0
+      uploadProgress: 0,
+      params: {}
     };
   },
   props: {
@@ -6474,6 +6514,105 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/services/index.js":
+/*!****************************************!*\
+  !*** ./resources/js/services/index.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "uploadService": () => (/* reexport safe */ _uploadService__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _uploadService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./uploadService */ "./resources/js/services/uploadService.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/services/uploadService.js":
+/*!************************************************!*\
+  !*** ./resources/js/services/uploadService.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+  headers: {
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'application/json'
+  }
+});
+var chunkSize = 10 * 1024 * 1024;
+
+var chunkUploader = function chunkUploader(endpoint, file, para, options) {
+  console.log(para);
+  console.log(options);
+  var start = options.chunkNumber * chunkSize;
+  var end = Math.min(file.size, start + chunkSize);
+  var currentChunkSize = chunkSize;
+
+  if (options.chunkNumber + 1 === options.blockCount) {
+    currentChunkSize = file.size - start;
+  }
+
+  var params = new FormData();
+  params.append('resumableChunkNumber', options.chunkNumber + 1);
+  params.append('resumableChunkSize', currentChunkSize);
+  params.append('resumableCurrentChunkSize', currentChunkSize);
+  params.append('resumableTotalSize', file.size);
+  params.append('resumableType', file.type);
+  params.append('resumableIdentifier', options.identifier);
+  params.append('resumableFilename', file.name);
+  params.append('resumableRelativePath', file.name);
+  params.append('resumableTotalChunks', options.blockCount);
+  params.append('file', file.slice(start, end), file.name);
+  params.append("rmail", para.rmail);
+  params.append("smail", para.smail);
+  params.append("subject", para.subject);
+  params.append("name", para.name);
+  params.append("msg", para.msg);
+  params.append("sendMail", para.sendMail);
+  return api.post(endpoint, params).then(function (res) {
+    options.onProgress && options.onProgress(parseInt(end / file.size * 100, 10), res);
+
+    if (end === file.size) {
+      options.onSuccess && options.onSuccess(res);
+    } else {
+      options.chunkNumber++;
+      return chunkUploader(endpoint, file, para, options);
+    }
+  })["catch"](function (err) {
+    options.onError && options.onError(err);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  chunk: function chunk(endpoint, file, para, onProgress, onError, onSuccess) {
+    var blockCount = Math.ceil(file.size / chunkSize);
+    var chunkNumber = 0;
+    var identifier = "".concat(file.size, "-").concat(file.name.replace('.', ''));
+    return chunkUploader(endpoint, file, para, {
+      blockCount: blockCount,
+      identifier: identifier,
+      chunkNumber: chunkNumber,
+      onProgress: onProgress,
+      onError: onError,
+      onSuccess: onSuccess
+    });
+  }
+});
 
 /***/ }),
 

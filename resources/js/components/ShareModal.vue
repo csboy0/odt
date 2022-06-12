@@ -180,6 +180,7 @@
 
 <script>
 import ProgressBar from "./ProgressBar.vue";
+import { uploadService } from "./../services";
 export default {
   components: { ProgressBar },
   methods: {
@@ -191,13 +192,21 @@ export default {
       this.name = document.getElementById("in-name").value;
       console.log(this.sMail, this.name);
       this.subject = document.getElementById("subject").value;
-      let formData = new FormData();
-      formData.append("file", this.file);
-      formData.append("smail", this.sMail);
-      formData.append("name", this.name);
-      formData.append("subject", this.subject);
-      formData.append("sendMail", false);
-      this.uploadToServer(formData);
+      // let formData = new FormData();
+      // formData.append("file", this.file);
+      // formData.append("smail", this.sMail);
+      // formData.append("name", this.name);
+      // formData.append("subject", this.subject);
+      // formData.append("sendMail", false);
+      this.params = {
+        rmail: this.rMail,
+        smail: this.sMail,
+        subject: this.subject,
+        name: this.name,
+        msg: this.msgS,
+        sendMail: false,
+      };
+        this.uploadToServer();
     },
     shareFile() {
       this.rMail = document.getElementById("sf-r-mail").value;
@@ -205,46 +214,77 @@ export default {
       this.subject = document.getElementById("sf-subject").value;
       this.msgS = document.getElementById("sf-msg").value;
       this.name = document.getElementById("sf-in-name").value;
-      let formData = new FormData();
-      formData.append("file", this.file);
-      formData.append("rmail", this.rMail);
-      formData.append("smail", this.sMail);
-      formData.append("subject", this.subject);
-      formData.append("name", this.name);
-      formData.append("msg", this.msgS);
-      formData.append("sendMail", true);
-      this.uploadToServer(formData);
+      // let formData = new FormData();
+      // formData.append("file", this.file);
+      // formData.append("rmail", this.rMail);
+      // formData.append("smail", this.sMail);
+      // formData.append("subject", this.subject);
+      // formData.append("name", this.name);
+      // formData.append("msg", this.msgS);
+      // formData.append("sendMail", true);
+      this.params = {
+        rmail: this.rMail,
+        smail: this.sMail,
+        subject: this.subject,
+        name: this.name,
+        msg: this.msgS,
+        sendMail: true,
+      };
+        this.uploadToServer();
     },
-    uploadToServer(formData) {
+    uploadToServer() {
       this.isloading = true;
       const config = {
         headers: { "content-type": "multipart/form-data" },
       };
-      axios
-        .post(
-          "/upload",
-          formData,
-          {
-            onUploadProgress: (e) => {
-              if (e.lengthComputable) {
-                this.uploadProgress = Math.round((e.loaded / e.total) * 100);
-                console.log(this.uploadProgress);
-              }
-            },
-          },
-          config
-        )
-        .then((res) => {
+
+      uploadService.chunk(
+        "/upload",
+        this.file,
+        this.params,
+        // onProgress
+        (percent) => {
+          this.uploadProgress = percent;
+        },
+        // onError
+        (err) => {
+              console.log(err);
+              this.uploadfinish(1, err);
+        },
+        // onSuccess
+        (res) => {
           if (res.status == 200) {
             console.log(res);
             this.uploadfinish(1, res.data);
           }
-        })
-        .catch((error) => {
-          // this.output = error;
-          console.log(error);
-          this.uploadfinish(1, error);
-        });
+        }
+      );
+
+      // axios
+      //   .post(
+      //     "/upload",
+      //     formData,
+      //     {
+      //       onUploadProgress: (e) => {
+      //         if (e.lengthComputable) {
+      //           this.uploadProgress = Math.round((e.loaded / e.total) * 100);
+      //           console.log(this.uploadProgress);
+      //         }
+      //       },
+      //     },
+      //     config
+      //   )
+      //   .then((res) => {
+      //     if (res.status == 200) {
+      //       console.log(res);
+      //       this.uploadfinish(1, res.data);
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     // this.output = error;
+      //     console.log(error);
+      //     this.uploadfinish(1, error);
+      //   });
     },
 
     sharefiles() {
@@ -285,6 +325,7 @@ export default {
       selectOne: true,
       isloading: false,
       uploadProgress: 0,
+      params: {},
     };
   },
   props: {
