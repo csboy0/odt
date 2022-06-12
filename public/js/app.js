@@ -5446,6 +5446,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     data: {
@@ -5459,6 +5462,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     done: function done() {
       this.$emit("done");
+    },
+    copyUrl: function copyUrl() {
+      navigator.clipboard.writeText(this.data.link);
+      alert("Link Copied!");
     }
   }
 });
@@ -31221,6 +31228,11 @@ var render = function () {
               _c("i", {
                 staticClass:
                   "fas fa-copy text-2xl text-slate-500 cursor-pointer",
+                on: {
+                  click: function ($event) {
+                    return _vm.copyUrl()
+                  },
+                },
               }),
             ]
           )

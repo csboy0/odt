@@ -57,10 +57,13 @@
         :href="this.data.link"
         >{{ this.data.link }}</a
       >
-      <i class="fas fa-copy text-2xl text-slate-500 cursor-pointer"></i>
+      <i
+        @click="copyUrl()"
+        class="fas fa-copy text-2xl text-slate-500 cursor-pointer"
+      ></i>
     </div>
     <button
-    @click="this.done"
+      @click="this.done"
       class="
         bg-slate-700
         border-2
@@ -87,12 +90,15 @@ export default {
     },
     link: "",
   },
-  methods:{
-
-    done(){
+  methods: {
+    done() {
       this.$emit("done");
-    }
-  }
+    },
+    copyUrl() {
+      navigator.clipboard.writeText(this.data.link);
+      alert("Link Copied!")
+    },
+  },
 };
 </script>
 
