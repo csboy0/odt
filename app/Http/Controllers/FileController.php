@@ -83,7 +83,8 @@ class FileController extends Controller
             // $content = "File link: " . $link;
             $details = [
                 'title' => 'Mail from ODT',
-                'body' => "Hello This Email is share to inform you that a file has been shared to you viad odt by {{$smail}} note the transfer is only valid till 24 hrs. Here is the download link for the transfer. {{$slink}}",
+                'body' => "Hello This Email is shared to inform you that a file has been shared to you via odt by {{$smail}} note the transfer is only valid till 24 hrs. Here is the download link for the transfer. {{$slink}}",
+
             ];
 
 
@@ -91,11 +92,19 @@ class FileController extends Controller
             if ($sendMail == 'true') {
 
                 Mail::to($rmail)->send(new \App\Mail\MailService($details));
+            } else {
+                
+                $details = [
+                    'title' => 'Mail from ODT',
+                    'body' => "Hello This Email is shared to inform you that a file has been created by you, note the transfer is only valid till 24 hrs. Here is the download link for the transfer. {{$slink}}",
+                ];
+                Mail::to($smail)->send(new \App\Mail\MailService($details));
             }
 
             return response()->json([
                 'type' => $type,
                 'link' => $slink,
+                'mail' => $smail,
             ]);
         }
 

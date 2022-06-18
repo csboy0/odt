@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+Header always set Content-Security-Policy "upgrade-insecure-requests;"
+>>>>>>> ac21fbab472e486eb512a515f7dbb6d55ca878e1
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes

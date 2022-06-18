@@ -5546,21 +5546,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     progress: {
       type: Number,
       "default": 0
+    },
+    filesize: {
+      type: Number,
+      "default": 0
+    },
+    fileExt: {
+      type: String,
+      "default": "b"
     }
   },
   data: function data() {
     return {
-      isloading: false
+      isloading: false,
+      dsize: 0
     };
+  },
+  created: function created() {
+    console.log(this.filesize, this.fileExt);
   },
   components: {
     RadialProgressBar: (vue_radial_progress__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  watch: {
+    progress: function progress(val) {
+      this.dsize = val / 100 * this.filesize;
+      this.dsize = Number(this.dsize.toString().slice(0, 4));
+    }
   }
 });
 
@@ -5608,6 +5630,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ProgressBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProgressBar.vue */ "./resources/js/components/ProgressBar.vue");
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../services */ "./resources/js/services/index.js");
+//
+//
 //
 //
 //
@@ -5846,7 +5870,20 @@ __webpack_require__.r(__webpack_exports__);
     uploadToServer: function uploadToServer() {
       var _this = this;
 
-      this.isloading = true;
+      this.isloading = true; // Size Calculation
+
+      var _size = this.file.size;
+      var fSExt = new Array("Bytes", "KB", "MB", "GB"),
+          i = 0;
+
+      while (_size > 900) {
+        _size /= 1024;
+        i++;
+      }
+
+      this.filesize = Math.round(_size * 100) / 100;
+      this.fileExt = fSExt[i];
+      console.log(this.filesize + '' + this.fileExt);
       var config = {
         headers: {
           "content-type": "multipart/form-data"
@@ -5932,7 +5969,9 @@ __webpack_require__.r(__webpack_exports__);
       selectOne: true,
       isloading: false,
       uploadProgress: 0,
-      params: {}
+      params: {},
+      filesize: 0,
+      fileExt: ""
     };
   },
   props: {
@@ -6561,7 +6600,7 @@ var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
     'Accept': 'application/json'
   }
 });
-var chunkSize = 10 * 1024 * 1024;
+var chunkSize = 2 * 1024 * 1024;
 
 var chunkUploader = function chunkUploader(endpoint, file, para, options) {
   console.log(para);
@@ -31415,6 +31454,20 @@ var render = function () {
           _c("p", { staticClass: "mt-2 text-2xl" }, [
             _vm._v(_vm._s(_vm.progress) + "%"),
           ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-sm font-bold" }, [
+            _vm._v(
+              "\n      " +
+                _vm._s(_vm.dsize) +
+                " " +
+                _vm._s(_vm.fileExt) +
+                " of " +
+                _vm._s(_vm.filesize) +
+                " " +
+                _vm._s(_vm.fileExt) +
+                "\n    "
+            ),
+          ]),
         ]
       ),
     ],
@@ -31736,7 +31789,11 @@ var render = function () {
           },
         ],
         staticClass: "position-fixed z-20 top-0 left-0",
-        attrs: { progress: _vm.uploadProgress },
+        attrs: {
+          progress: _vm.uploadProgress,
+          filesize: _vm.filesize,
+          fileExt: _vm.fileExt,
+        },
       }),
     ],
     1
@@ -47320,6 +47377,11 @@ Vue.compile = compileToFunctions;
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

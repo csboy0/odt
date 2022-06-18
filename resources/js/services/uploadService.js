@@ -7,7 +7,7 @@ const api = axios.create({
     }
 });
 
-const chunkSize =10* 1024 * 1024;
+const chunkSize = 2* 1024 * 1024;
 
 const chunkUploader = (endpoint, file, para, options) => {
     console.log(para);

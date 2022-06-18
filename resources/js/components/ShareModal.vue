@@ -172,6 +172,8 @@
     </div>
     <ProgressBar
       :progress="uploadProgress"
+      :filesize="filesize"
+      :fileExt="fileExt"
       v-show="isloading"
       class="position-fixed z-20 top-0 left-0"
     />
@@ -206,7 +208,7 @@ export default {
         msg: this.msgS,
         sendMail: false,
       };
-        this.uploadToServer();
+      this.uploadToServer();
     },
     shareFile() {
       this.rMail = document.getElementById("sf-r-mail").value;
@@ -230,10 +232,23 @@ export default {
         msg: this.msgS,
         sendMail: true,
       };
-        this.uploadToServer();
+      this.uploadToServer();
     },
     uploadToServer() {
       this.isloading = true;
+
+      // Size Calculation
+      var _size = this.file.size;
+      var fSExt = new Array("Bytes", "KB", "MB", "GB"),
+        i = 0;
+      while (_size > 900) {
+        _size /= 1024;
+        i++;
+      }
+      this.filesize = Math.round(_size * 100) / 100;
+      this.fileExt = fSExt[i];
+      console.log(this.filesize+''+this.fileExt);
+
       const config = {
         headers: { "content-type": "multipart/form-data" },
       };
@@ -248,8 +263,8 @@ export default {
         },
         // onError
         (err) => {
-              console.log(err);
-              this.uploadfinish(1, err);
+          console.log(err);
+          this.uploadfinish(1, err);
         },
         // onSuccess
         (res) => {
@@ -326,6 +341,8 @@ export default {
       isloading: false,
       uploadProgress: 0,
       params: {},
+      filesize: 0,
+      fileExt: "",
     };
   },
   props: {
